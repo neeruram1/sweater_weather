@@ -11,6 +11,7 @@ gem 'figaro'
 gem 'factory_bot'
 gem 'faker'
 gem 'faraday'
+gem 'fast_jsonapi'
 
 
 group :development, :test do

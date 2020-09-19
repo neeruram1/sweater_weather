@@ -14,9 +14,10 @@ describe "User can request forecast for a city" do
     expect(weather[:data][:weather][:attributes]).to have_key :current_forecast
     expect(weather[:data][:weather][:attributes]).to have_key :hourly_forecast
     expect(weather[:data][:weather][:attributes]).to have_key :daily_forecast
+    expect(weather[:data][:weather][:attributes]).to have_key :location_name
   end
 
-  it "Current forecast returns specific attributes" do
+  it "Current forecast returns specific attributes", :vcr do
     location = 'denver, co'
 
     get "/api/v1/forecast?location=#{location}"
@@ -30,9 +31,7 @@ describe "User can request forecast for a city" do
     expect(current_forecast[:attributes]).to have_key :current_temp
     expect(current_forecast[:attributes]).to have_key :current_high
     expect(current_forecast[:attributes]).to have_key :current_low
-    expect(current_forecast[:attributes]).to have_key :location_name
-    expect(current_forecast[:attributes]).to have_key :date
-    expect(current_forecast[:attributes]).to have_key :time
+    expect(current_forecast[:attributes]).to have_key :date_time
     expect(current_forecast[:attributes]).to have_key :description
     expect(current_forecast[:attributes]).to have_key :sunrise_time
     expect(current_forecast[:attributes]).to have_key :sunset_time

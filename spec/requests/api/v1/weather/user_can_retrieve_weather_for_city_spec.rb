@@ -8,10 +8,10 @@ describe "User can request forecast for a city" do
     expect(response).to be_successful
     response.content_type == "application/json"
 
-    forecast = JSON.parse(response.body, symbolize_names: true)[:data]
+    weather = JSON.parse(response.body, symbolize_names: true)
 
-    expect(forecast[:data]).to have_key [:current]
-    expect(forecast[:data]).to have_key [:hourly]
-    expect(forecast[:data]).to have_key [:daily]
+    expect(weather[:data][:weather][:attributes]).to have_key :current_forecast
+    expect(weather[:data][:weather][:attributes]).to have_key :hourly_forecast
+    expect(weather[:data][:weather][:attributes]).to have_key :daily_forecast
   end
 end

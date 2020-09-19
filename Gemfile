@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'factory_bot'
 gem 'faker'
+gem 'faraday'
 
 
 group :development, :test do

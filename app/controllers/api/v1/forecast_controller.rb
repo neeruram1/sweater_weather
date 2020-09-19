@@ -1,8 +1,7 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    coords = MapquestFacade.new.get_coords(location_param)
+    WeatherFacade.new.forecast(location_param)
     binding.pry
-
   end
 
   private

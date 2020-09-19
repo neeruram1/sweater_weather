@@ -1,7 +1,6 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    WeatherFacade.new.forecast(location_param)
-    binding.pry
+    render json: WeatherSerializer.new(WeatherFacade.new.forecast(location_param))
   end
 
   private

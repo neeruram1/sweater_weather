@@ -1,7 +1,7 @@
 class MapquestService
 
   def get_coords(location)
-    to_json("/location=#{location}")
+    to_json("?&location=#{location}")[:results].first
   end
 
   private

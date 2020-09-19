@@ -7,7 +7,7 @@ describe 'Getting latitude and longitude from Mapquest API' do
     longitude = -104.984853
     service = MapquestService.new
 
-    response = service.get_coords(location)
+    response = service.coords(location)
 
     expect(response).to be_a Hash
 

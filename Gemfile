@@ -17,6 +17,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'rubocop', require: false
   gem 'pry'
+  gem "nyan-cat-formatter"
 end
 
 group :test do

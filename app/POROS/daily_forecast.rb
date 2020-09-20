@@ -16,15 +16,27 @@ class DailyForecast
   end
 
   def total_precipitation(data)
-    if data[:rain].nil? && data[:snow].nil?
+    if no_precipitation?
       0
-    elsif data[:snow].nil? && data[:rain].nil? == false
+    elsif rain_present? && snow_present? == false
       data[:rain]
-    elsif data[:rain].nil? && data[:snow].nil? == false
+    elsif snow_present? && rain_present == false
       data[:snow]
     else
       data[:rain] + data[:snow]
     end
+  end
+
+  def no_precipitation?
+    data[:rain].nil? && data[:snow].nil?
+  end
+
+  def rain_present?
+    data[:rain].nil == false
+  end
+
+  def snow_present?
+    data[:snow].nil == false
   end
 
   def parse_time(time)

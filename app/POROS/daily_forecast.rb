@@ -1,18 +1,18 @@
 class DailyForecast
   attr_reader :date_time,
+              :day_of_week,
               :description,
-              :high_temp_daily,
-              :low_temp_daily,
               :precipitation,
-              :day_of_week
+              :low_temp_daily,
+              :high_temp_daily
 
   def initialize(data)
-    @day_of_week = parse_time(data[:dt]).strftime("%A")
     @date_time = parse_time(data[:dt])
-    @description = data[:weather][0][:main]
-    @high_temp_daily = data[:temp][:max]
     @low_temp_daily = data[:temp][:min]
+    @high_temp_daily = data[:temp][:max]
+    @description = data[:weather][0][:main]
     @precipitation = total_precipitation(data)
+    @day_of_week = parse_time(data[:dt]).strftime("%A")
   end
 
   def total_precipitation(data)

@@ -1,27 +1,31 @@
 class CurrentForecast
   attr_reader :uv_index,
-              :date_time,
-              :current_temp,
-              :sunset_time,
+              :low_temp,
               :humidity,
-              :sunrise_time,
+              :date_time,
+              :high_temp,
               :feels_like,
               :visibility,
-              :high_temp,
-              :low_temp,
-              :description
+              :sunset_time,
+              :description,
+              :current_temp,
+              :sunrise_time
 
   def initialize(data)
     @uv_index = data[:current][:uvi]
-    @date_time =  data[:current][:dt]
     @current_temp = data[:current][:temp]
-    @sunset_time = data[:current][:sunset]
     @humidity =  data[:current][:humidity]
-    @sunrise_time = data[:current][:sunrise]
     @feels_like = data[:current][:feels_like]
     @visibility = data[:current][:visibility]
+    @date_time =  parse_time(data[:current][:dt])
     @high_temp_current = data[:daily][0][:temp][:max]
     @low_temp_current =  data[:daily][0][:temp][:min]
     @description = data[:current][:weather][0][:main]
+    @sunset_time = parse_time(data[:current][:sunset])
+    @sunrise_time = parse_time(data[:current][:sunrise])
+  end
+
+  def parse_time(time)
+    DateTime.strptime(time.to_s, '%s')
   end
 end

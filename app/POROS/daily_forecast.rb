@@ -3,10 +3,12 @@ class DailyForecast
               :description,
               :high_temp_daily,
               :low_temp_daily,
-              :precipitation
+              :precipitation,
+              :day_of_week
 
   def initialize(data)
-    @date_time = data[:dt]
+    @day_of_week = parse_time(data[:dt]).strftime("%A")
+    @date_time = parse_time(data[:dt])
     @description = data[:weather][0][:main]
     @high_temp_daily = data[:temp][:max]
     @low_temp_daily = data[:temp][:min]
@@ -23,5 +25,9 @@ class DailyForecast
     else
       data[:rain] + data[:snow]
     end
+  end
+
+  def parse_time(time)
+    DateTime.strptime(time.to_s, '%s')
   end
 end

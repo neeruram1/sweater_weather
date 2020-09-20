@@ -14,7 +14,6 @@ describe "User can request forecast for a city" do
     expect(weather[:data][:weather][:attributes]).to have_key :current_forecast
     expect(weather[:data][:weather][:attributes]).to have_key :hourly_forecast
     expect(weather[:data][:weather][:attributes]).to have_key :daily_forecast
-    expect(weather[:data][:weather][:attributes]).to have_key :location_name
   end
 
   it "Current forecast returns specific attributes", :vcr do

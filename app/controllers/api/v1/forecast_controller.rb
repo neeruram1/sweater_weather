@@ -1,6 +1,6 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    serialize_weather(weather(location)).serialized_json
+    render json: serialize_weather(weather(location))
   end
 
   private

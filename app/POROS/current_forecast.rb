@@ -20,8 +20,8 @@ class CurrentForecast
     @sunrise_time = data[:current][:sunrise]
     @feels_like = data[:current][:feels_like]
     @visibility = data[:current][:visibility]
-    @high_temp = data[:daily][0][:temp][:max]
-    @low_temp =  data[:daily][0][:temp][:min]
+    @high_temp_current = data[:daily][0][:temp][:max]
+    @low_temp_current =  data[:daily][0][:temp][:min]
     @description = data[:current][:weather][0][:main]
   end
 end

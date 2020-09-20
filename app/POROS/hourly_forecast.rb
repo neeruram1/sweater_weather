@@ -1,6 +1,9 @@
 class HourlyForecast
+  attr_reader :date_time,
+              :hourly_temp 
+
   def initialize(data)
     @date_time = data[:dt]
-    @temp = data[:temp]
+    @hourly_temp = data[:temp]
   end
 end

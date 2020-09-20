@@ -1,4 +1,16 @@
 class CurrentForecast
+  attr_reader :uv_index,
+              :date_time,
+              :current_temp,
+              :sunset_time,
+              :humidity,
+              :sunrise_time,
+              :feels_like,
+              :visibility,
+              :high_temp,
+              :low_temp,
+              :description
+
   def initialize(data)
     @uv_index = data[:current][:uvi]
     @date_time =  data[:current][:dt]

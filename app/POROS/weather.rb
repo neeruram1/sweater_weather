@@ -4,10 +4,10 @@ class Weather
               :hourly_forecast,
               :daily_forecast
 
-  def initialize(data)
+  def initialize(results)
     @id = nil
-    @current_forecast = data[:current]
-    @hourly_forecast = data[:hourly]
-    @daily_forecast = data[:daily]
+    @current_forecast = CurrentForecast.new(results)
+    @hourly_forecast = results[:hourly].map {|data| HourlyForecast.new(data)}
+    @daily_forecast = results[:daily].map {|data| DailyForecast.new(data)}
   end
 end

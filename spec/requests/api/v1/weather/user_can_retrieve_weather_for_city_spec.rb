@@ -65,5 +65,13 @@ describe "User can request forecast for a city" do
     expect(daily_forecasts[0]).to have_key :low_temp_daily
     expect(daily_forecasts[0]).to have_key :high_temp_daily
     expect(daily_forecasts[0]).to have_key :precipitation
+
+    expect(daily_forecasts[0]).to_not have_key :sunrise_time
+    expect(daily_forecasts[0]).to_not have_key :sunset_time
+    expect(daily_forecasts[0]).to_not have_key :current_temp
+    expect(daily_forecasts[0]).to_not have_key :feels_like
+    expect(daily_forecasts[0]).to_not have_key :humidity
+    expect(daily_forecasts[0]).to_not have_key :visibility
+    expect(daily_forecasts[0]).to_not have_key :uv_index
   end
 end

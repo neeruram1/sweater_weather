@@ -1,4 +1,10 @@
 class DailyForecast
+  attr_reader :date_time,
+              :description,
+              :high_temp,
+              :low_temp,
+              :precipitation
+              
   def initialize(data)
     @date_time = data[:dt]
     @description = data[:weather][0][:main]

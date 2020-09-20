@@ -1,7 +1,7 @@
 class WeatherFacade
   def forecast(location)
     weather_data = weather_service.forecast(coords(location))
-    Weather.new(weather_data)
+    Weather.new(weather_data, location)
   end
 
   def coords(location)

@@ -14,7 +14,7 @@ class CurrentForecast
   def initialize(data)
     @uv_index = data[:current][:uvi]
     @current_temp = data[:current][:temp]
-    @humidity =  data[:current][:humidity]
+    @humidity = data[:current][:humidity]
     @feels_like = data[:current][:feels_like]
     @visibility = data[:current][:visibility]
     @date_time =  parse_time(data[:current][:dt])

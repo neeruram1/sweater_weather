@@ -12,12 +12,12 @@ class DailyForecast
     @high_temp_daily = data[:temp][:max]
     @description = data[:weather][0][:main]
     @precipitation = total_precipitation(data)
-    @day_of_week = parse_time(data[:dt]).strftime("%A")
+    @day_of_week = parse_time(data[:dt]).strftime('%A')
   end
 
   def total_precipitation(data)
     if data[:rain].nil? && data[:snow].nil?
-      return 0
+      0
     elsif data[:snow].nil? && data[:rain].nil? == false
       data[:rain]
     elsif data[:rain].nil? && data[:snow].nil? == false

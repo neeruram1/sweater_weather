@@ -1,5 +1,4 @@
 class MapquestService
-
   def coords(location)
     to_json("?&location=#{location}")[:results].first
   end
@@ -13,7 +12,7 @@ class MapquestService
 
   def conn
     Faraday.new('http://www.mapquestapi.com/geocoding/v1/address') do |f|
-      f.params[:key] = "#{ENV['mapquest_key']}"
+      f.params[:key] = ENV['mapquest_key'].to_s
     end
   end
 end

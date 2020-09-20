@@ -6,7 +6,7 @@ class WeatherFacade
 
   def coords(location)
     data = mapquest_service.coords(location)
-    {lat: data[:locations][0][:latLng][:lat].round(2), lon: data[:locations][0][:latLng][:lng].round(2)}
+    { lat: data[:locations][0][:latLng][:lat].round(2), lon: data[:locations][0][:latLng][:lng].round(2) }
   end
 
   private

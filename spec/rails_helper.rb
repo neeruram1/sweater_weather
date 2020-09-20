@@ -62,3 +62,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<weather_key>') { ENV['weather_key'] }
+  config.filter_sensitive_data('<mapquest_key>') { ENV['mapquest_key'] }
+  config.filter_sensitive_data('<mapquest_secret>') { ENV['mapquest_secret'] }
+  config.default_cassette_options = { re_record_interval: 7.days }
+  config.configure_rspec_metadata!
+end

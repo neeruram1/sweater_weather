@@ -15,9 +15,9 @@ class WeatherSerializer
             current_forecast: {
               attributes: {
                 current_temp: @current_forecast[:temp],
-                current_high: 'placeholder',
-                current_low: 'placeholder',
-                date_time: @current_forecast[:dt],
+                current_high:  @daily_forecast[0][:temp][:max],
+                current_low:  @daily_forecast[0][:temp][:min],
+                date_time: DateTime.strptime(@current_forecast[:dt].to_s, '%s'),
                 description: @current_forecast[:weather][0][:description],
                 sunrise_time: @current_forecast[:sunrise],
                 sunset_time: @current_forecast[:sunset],
@@ -28,8 +28,7 @@ class WeatherSerializer
                 }
               },
             daily_forecast: @daily_forecast,
-            hourly_forecast: @hourly_forecast,
-            location_name: 'placeholder'
+            hourly_forecast: @hourly_forecast
           }
         }
       }

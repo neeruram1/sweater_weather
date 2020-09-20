@@ -45,4 +45,22 @@ describe "User can request forecast for a city" do
     expect(current_forecast[:attributes]).to_not have_key :wind_speed
     expect(current_forecast[:attributes]).to_not have_key :wind_deg
   end
+
+  it "Daily forecast returns specific attributes", :vcr do
+    location = 'denver, co'
+
+    get "/api/v1/forecast?location=#{location}"
+
+    expect(response).to be_successful
+    response.content_type == "application/json"
+
+    data = JSON.parse(response.body, symbolize_names: true)
+    daily_forecast = data[:data][:weather][:attributes][:daily_forecast]
+
+    expect(daily_forecast[:attributes]).to have_key :day_of_week
+    expect(daily_forecast[:attributes]).to have_key :description
+    expect(daily_forecast[:attributes]).to have_key :current_low
+    expect(daily_forecast[:attributes]).to have_key :current_high
+    expect(daily_forecast[:attributes]).to have_key :precipitation
+  end
 end

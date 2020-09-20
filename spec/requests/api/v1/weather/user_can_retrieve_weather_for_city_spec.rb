@@ -38,5 +38,11 @@ describe "User can request forecast for a city" do
     expect(current_forecast[:attributes]).to have_key :humidity
     expect(current_forecast[:attributes]).to have_key :visibility
     expect(current_forecast[:attributes]).to have_key :uv_index
+
+    expect(current_forecast[:attributes]).to_not have_key :pressure
+    expect(current_forecast[:attributes]).to_not have_key :dew_point
+    expect(current_forecast[:attributes]).to_not have_key :clouds
+    expect(current_forecast[:attributes]).to_not have_key :wind_speed
+    expect(current_forecast[:attributes]).to_not have_key :wind_deg
   end
 end

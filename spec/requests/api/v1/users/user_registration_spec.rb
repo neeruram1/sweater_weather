@@ -12,6 +12,7 @@ describe "User registration" do
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user[:data]).to have_key(:type)
+    expect(user[:data][:type]).to eq('user')
     expect(user[:data]).to have_key(:id)
     expect(user[:data][:attributes][:email]).to eq(body[:email])
     expect(user[:data][:attributes]).to have_key(:api_key)

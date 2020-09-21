@@ -41,7 +41,7 @@ describe "User registration" do
   end
 
   it "Sends back an error message if email has been taken", :vcr do
-    mike = User.create(email: 'michael@bluthco.org', password: 'password', password_confirmation: 'password' )
+    User.create(email: 'michael@bluthco.org', password: 'password', password_confirmation: 'password' )
 
     body = {
       email: 'michael@bluthco.org',
@@ -59,6 +59,25 @@ describe "User registration" do
     expect(user[:errors][0][:status]).to eq(400)
     expect(user[:errors][0][:title]).to eq("Bad Request")
     expect(user[:errors][0][:detail]).to eq("Email has already been taken")
+  end
+
+  it "Sends back an error message if email is empty", :vcr do
+    body = {
+      email: '',
+      password: 'banana',
+      password_confirmation: 'banana'
+    }
+
+    post '/api/v1/users', params: body
+
+    expect(response).to_not be_successful
+    response.content_type == "application/json"
+
+    user = JSON.parse(response.body, symbolize_names: true)
+
+    expect(user[:errors][0][:status]).to eq(400)
+    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:detail]).to eq("Email can't be blank")
   end
 
 

@@ -16,11 +16,11 @@ describe "User login" do
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user[:data]).to have_key(:type)
-    expect(user[:data][:type]).to eq('users')
+    expect(user[:data][:type]).to eq('user')
     expect(user[:data]).to have_key(:id)
-    expect(user[:data][:id]).to eq(michael.id)
+    expect(user[:data][:id]).to eq(michael.id.to_s)
     expect(user[:data][:attributes][:email]).to eq(michael.email)
     expect(user[:data][:attributes]).to have_key(:api_key)
-    expect(user[:data][:attributes]).to eq(michael.api_key)
+    expect(user[:data][:attributes][:api_key]).to eq(michael.api_key)
     end
   end

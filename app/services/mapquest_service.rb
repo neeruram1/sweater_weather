@@ -4,7 +4,6 @@ class MapquestService
   end
 
   def distance_between_routes(coords1, coords2)
-    binding.pry
     to_json_route("?&from=#{coords1}&to=#{coords2}")
   end
 

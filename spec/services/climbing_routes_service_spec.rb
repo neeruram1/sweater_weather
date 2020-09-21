@@ -25,5 +25,16 @@ describe 'Getting climbing routes for a location based on latitude and longitude
     expect(response[:routes][0]).to have_key :latitude
   end
 
-  #sad path - no routes exist
+  it "Returns an error if latitude or longitude entered incorrectly" do
+    climbing_routes_service = ClimbingRoutesService.new
+    latitude = "fake"
+    longitude = "kjead"
+    coords = {lat: latitude.round(2), lon: longitude.round(2)}
+
+    response = climbing_routes_service.nearby_routes(coords)
+
+    expect(response).to be_a Hash
+    expect(response[:success]).to eq(0)
+    expect(response[:message]).to eq("No lat/lon specified")
+  end
 end

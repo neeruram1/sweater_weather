@@ -7,9 +7,18 @@ class ClimbingRoutesFacade
     }
   end
 
+  def climbing_routes(location)
+    routes_data = climbing_routes_service.nearby_routes(coords(location))
+    routes_data.map { |data| ClimbingRoute.new(data) }
+  end
+
   private
 
   def mapquest_service
     MapquestService.new
+  end
+
+  def climbing_routes_service
+    ClimbingRoutesService.new
   end
 end

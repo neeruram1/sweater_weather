@@ -12,6 +12,7 @@ gem 'factory_bot'
 gem 'faker'
 gem 'faraday'
 gem 'fast_jsonapi'
+gem 'bcrypt'
 
 
 group :development, :test do

@@ -19,7 +19,7 @@ describe 'Getting climbing routes for a location based on latitude and longitude
     expect(response[:routes][0]).to have_key :starVotes
     expect(response[:routes][0]).to have_key :pitches
     expect(response[:routes][0]).to have_key :location
-    expect(response[:routes][:location][0]).to be_a Array
+    expect(response[:routes][0][:location]).to be_a Array
     expect(response[:routes][0]).to have_key :url
     expect(response[:routes][0]).to have_key :longitude
     expect(response[:routes][0]).to have_key :latitude

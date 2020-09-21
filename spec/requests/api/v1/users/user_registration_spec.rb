@@ -20,4 +20,6 @@ describe "User registration" do
     expect(user[:data][:attributes][:email]).to eq(body[:email])
     expect(user[:data][:attributes]).to have_key(:api_key)
   end
+
+  #sad paths: password doesn't match, email has been taken, email empty, password empty, password confirmation empty 
 end

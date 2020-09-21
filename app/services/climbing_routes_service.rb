@@ -1,2 +1,5 @@
 class ClimbingRoutesService
-end 
+  def nearby_routes(coords)
+
+  end
+end

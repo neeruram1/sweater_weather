@@ -1,6 +1,12 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    render json: serialize_user(User.create(user_params).generate_api_key)
+    binding.pry
+    user = User.new(user_params)
+    if user.save
+      render json: serialize_user(user)
+    else
+      render json: user.errors.full_messages.to_sentence
+    end
   end
 
   private
@@ -10,6 +16,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:email, :password)
+    params.permit(:email, :password, :password_confirmation)
   end
 end

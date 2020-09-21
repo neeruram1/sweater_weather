@@ -21,5 +21,23 @@ describe "User registration" do
     expect(user[:data][:attributes]).to have_key(:api_key)
   end
 
-  #sad paths: password doesn't match, email has been taken, email empty, password empty, password confirmation empty 
+  it "Sends back an error message if password doesn't match password confirmation", :vcr do
+    body = {
+      email: 'michael@bluthco.org',
+      password: 'banana',
+      password_confirmation: 'bananastand'
+    }
+
+    post '/api/v1/users', params: body
+
+    expect(response).to be_successful
+    response.content_type == "application/json"
+
+    user = JSON.parse(response.body, symbolize_names: true)
+
+    expect(user[:status]).to eq(400)
+    expect(user[:body]).to eq("Password does not match password confirmation")
+  end
+
+  #sad paths: email has been taken, email empty, password empty, password confirmation empty, user already exists
 end

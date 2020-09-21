@@ -40,5 +40,28 @@ describe "User registration" do
     expect(user[:errors][0][:detail]).to eq("Password confirmation doesn't match Password")
   end
 
-  #sad paths: email has been taken, email empty, password empty, password confirmation empty, user already exists
+  it "Sends back an error message if email has been taken", :vcr do
+    mike = User.create(email: 'michael@bluthco.org', password: 'password', password_confirmation: 'password' )
+
+    body = {
+      email: 'michael@bluthco.org',
+      password: 'banana',
+      password_confirmation: 'banana'
+    }
+
+    post '/api/v1/users', params: body
+
+    expect(response).to_not be_successful
+    response.content_type == "application/json"
+
+    user = JSON.parse(response.body, symbolize_names: true)
+
+    expect(user[:errors][0][:status]).to eq(400)
+    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:detail]).to eq("Email has already been taken")
+  end
+
+
+
+  #sad paths: email empty, password empty, password confirmation empty, user already exists
 end

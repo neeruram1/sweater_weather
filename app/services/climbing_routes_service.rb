@@ -1,6 +1,6 @@
 class ClimbingRoutesService
   def nearby_routes(coords)
-
+    to_json("get-routes-for-lat-lon?lat=#{coords[:lat]}&lon=#{coords[:lon]}")
   end
 
   private

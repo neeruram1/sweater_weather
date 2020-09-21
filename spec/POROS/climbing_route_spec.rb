@@ -23,7 +23,7 @@ describe ClimbingRoute do
     expect(route.type).to eq('Trad')
     expect(route.rating).to eq('5.9')
     expect(route.location).to be_a Array
-    expect(route.location).to eq(['North Carolina, 2. Northern Mountains Region', 'Liville Gorge', 'Shortoff Mountain'])
+    expect(route.location).to eq(["North Carolina", "2. Northern Mountains Region", "Linville Gorge", "Shortoff Mountain"])
     expect(route.distance_to_route).to eq('76.876')
   end
 end

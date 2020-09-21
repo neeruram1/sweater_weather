@@ -1,5 +1,5 @@
 class ClimbingRoute
-  attr_readers :id,
+  attr_reader  :id,
                :name,
                :type,
                :rating,
@@ -7,11 +7,11 @@ class ClimbingRoute
                :distance_to_route
 
   def initialize(data)
-    @id = 'placeholder'
-    @name = 'placeholder'
-    @type = 'placeholder'
-    @rating = 'placeholder'
-    @location = 'placeholder'
-    @distance_to_route = 'placeholder'
+    @id = nil
+    @name = data[:name]
+    @type = data[:type]
+    @rating = data[:rating]
+    @location = data[:location]
+    @distance_to_route = data[:distance_to_route]
   end
 end

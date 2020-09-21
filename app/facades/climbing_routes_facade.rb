@@ -9,7 +9,7 @@ class ClimbingRoutesFacade
 
   def climbing_routes(location)
     routes_data = climbing_routes_service.nearby_routes(coords(location))
-    routes_data.map { |data| ClimbingRoute.new(data) }
+    routes_data[:routes].map { |data| ClimbingRoute.new(data) }
   end
 
   private

@@ -5,5 +5,6 @@ class User < ApplicationRecord
 
   def generate_api_key
     update(api_key: SecureRandom.hex)
+    self
   end
 end

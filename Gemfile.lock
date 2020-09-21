@@ -46,6 +46,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
     ast (2.4.1)
+    bcrypt (3.1.16)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -187,6 +188,8 @@ GEM
       rubocop (>= 0.87.0)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
+    shoulda-matchers (4.4.1)
+      activesupport (>= 4.2.0)
     simplecov (0.19.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -222,6 +225,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootsnap (>= 1.1.0)
   byebug
   capybara
@@ -239,6 +243,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.4)
   rspec-rails
   rubocop-rails
+  shoulda-matchers (~> 4.0)
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -12,6 +12,7 @@ gem 'factory_bot'
 gem 'faker'
 gem 'faraday'
 gem 'fast_jsonapi'
+gem 'bcrypt'
 
 
 group :development, :test do
@@ -28,6 +29,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do

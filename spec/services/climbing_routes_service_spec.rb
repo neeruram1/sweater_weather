@@ -25,11 +25,11 @@ describe 'Getting climbing routes for a location based on latitude and longitude
     expect(response[:routes][0]).to have_key :latitude
   end
 
-  it "Returns an error if latitude or longitude entered incorrectly" do
+  it "Returns an error if latitude or longitude entered incorrectly", :vcr do
     climbing_routes_service = ClimbingRoutesService.new
     latitude = "fake"
     longitude = "kjead"
-    coords = {lat: latitude.round(2), lon: longitude.round(2)}
+    coords = {lat: latitude, lon: longitude}
 
     response = climbing_routes_service.nearby_routes(coords)
 

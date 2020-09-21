@@ -11,6 +11,7 @@ describe "User login" do
     post '/api/v1/sessions', params: body
 
     expect(response).to be_successful
+    expect(response.status).to eq(200)
     response.content_type == "application/json"
 
     user = JSON.parse(response.body, symbolize_names: true)

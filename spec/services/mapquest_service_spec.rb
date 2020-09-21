@@ -20,4 +20,24 @@ describe 'Getting latitude and longitude from Mapquest API' do
     expect(response[:locations][0][:latLng][:lat]).to eq(latitude)
     expect(response[:locations][0][:latLng][:lng]).to eq(longitude)
   end
+
+  it "Can get the distance between two routes" do
+    location1 = 'denver, co'
+    latitude1 = 39.738453
+    longitude1 = -104.984853
+    coords1 = {lat: latitude1, lon: longitude1}
+
+    location2 = 'lovers leap'
+    latitude2 = 39.616
+    longitude2 = -105.214
+    coords1 = {lat: latitude2, lon: longitude2}
+
+    service = MapquestService.new
+
+    response = service.distance_between_routes(coords1, coords2)
+
+    expect(response).to be_a Hash
+
+    expect(response[:route]).to have_key :distance
+  end
 end

@@ -1,13 +1,11 @@
 class ClimbingRoute
-  attr_reader  :id,
-               :name,
+  attr_reader  :name,
                :type,
                :rating,
                :location,
                :distance_to_route
 
   def initialize(data, city_coordinates)
-    @id = nil
     @name = data[:name]
     @type = data[:type]
     @rating = data[:rating]

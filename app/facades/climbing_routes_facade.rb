@@ -2,14 +2,15 @@ class ClimbingRoutesFacade
   def coords(location)
     data = mapquest_service.coords(location)
     {
-      lat: data[:locations][0][:latLng][:lat].round(2),
-      lon: data[:locations][0][:latLng][:lng].round(2)
+      lat: data[:locations][0][:latLng][:lat],
+      lon: data[:locations][0][:latLng][:lng]
     }
   end
 
   def climbing_routes(location)
-    routes_data = climbing_routes_service.nearby_routes(coords(location))
-    routes_data[:routes].map { |data| ClimbingRoute.new(data) }
+    coordinates = coords(location)
+    routes_data = climbing_routes_service.nearby_routes(coordinates)
+    routes_data[:routes].map { |data| ClimbingRoute.new(data, coordinates) }
   end
 
   private

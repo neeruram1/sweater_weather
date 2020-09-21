@@ -1,4 +1,5 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :email, :api_key
+  attributes :email
+  attribute :api_key, if: Proc.new { |record| record.id.nil? == false }
 end

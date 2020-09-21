@@ -7,8 +7,8 @@ describe 'Climbing routes facade' do
       longitude = -104.984853
       location = 'denver, co'
 
-      expect(facade.coords(location)[:lat]).to eq(latitude.round(2))
-      expect(facade.coords(location)[:lon]).to eq(longitude.round(2))
+      expect(facade.coords(location)[:lat]).to eq(latitude)
+      expect(facade.coords(location)[:lon]).to eq(longitude)
     end
 
     it ".climbing_routes()", :vcr do
@@ -16,7 +16,7 @@ describe 'Climbing routes facade' do
       location = 'denver, co'
 
       expect(facade.climbing_routes(location)).to be_a Array
-      expect(facade.climbing_routes(location[0])).to be_a ClimbingRoute
+      expect(facade.climbing_routes(location)[0]).to be_a ClimbingRoute
     end
   end
 end

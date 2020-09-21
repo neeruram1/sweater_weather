@@ -1,6 +1,10 @@
 require 'rails_helper'
 describe ClimbingRoute do
   it "exists" do
+    latitude = 39.738453
+    longitude = -104.984853
+    coords = "#{latitude}"+','+"#{longitude}"
+
     attrs = {
       id: nil,
       name: 'Dopey Duck',
@@ -12,10 +16,10 @@ describe ClimbingRoute do
         'Linville Gorge',
         'Shortoff Mountain'
       ],
-      distance_to_route: '76.876'
+      distance_to_route: '76.876',
     }
 
-    route = ClimbingRoute.new(attrs)
+    route = ClimbingRoute.new(attrs, coords)
 
     expect(route).to be_a ClimbingRoute
     expect(route.id).to eq(nil)

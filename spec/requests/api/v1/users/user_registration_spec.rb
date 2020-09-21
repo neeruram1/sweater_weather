@@ -9,6 +9,9 @@ describe "User registration" do
 
     post '/api/v1/users', params: body
 
+    expect(response).to be_successful
+    response.content_type == "application/json"
+
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user[:data]).to have_key(:type)

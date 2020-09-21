@@ -1,15 +1,17 @@
 class ErrorSerializer
-  def initialize(model)
+  def initialize(model, status)
     @model = model
+    @status = status
   end
 
-  def bad_request
-    {
-      errors: [
-        status: 400,
-        title: "Bad Request",
-        detail: @model.errors.full_messages.join
-      ]
-    }
+  def errors
+    json = {}
+      error_hash = @model.errors.to_hash(true).map do |__, values|
+        values.map do |details|
+          { status: @status, title: "Bad Request", detail: details }
+        end
+      end.flatten
+      json[:errors] = error_hash
+    json
   end
 end

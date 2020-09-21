@@ -1,6 +1,6 @@
 require 'rails_helper'
 describe 'Getting climbing routes for a location based on latitude and longitude' do
-  it "Gets a climbing route by sending lat and lon as a search query" do
+  it "Gets a climbing route by sending lat and lon as a search query", :vcr do
     location = 'denver, co'
 
     mapquest_service = MapquestService.new

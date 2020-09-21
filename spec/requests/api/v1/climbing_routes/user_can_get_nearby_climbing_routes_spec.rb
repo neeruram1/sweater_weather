@@ -24,8 +24,8 @@ describe "User can request nearby climbing routes for a location" do
     expect(routes_data[:data][:attributes][:routes][0]).to have_key :name
     expect(routes_data[:data][:attributes][:routes][0]).to have_key :type
     expect(routes_data[:data][:attributes][:routes][0]).to have_key :rating
-    expect(routs_data[:data][:attributes][:routes][0]).to have_key :location
+    expect(routes_data[:data][:attributes][:routes][0]).to have_key :location
     expect(routes_data[:data][:attributes][:routes][0][:location]).to be_a Array
-    expect(routs_data[:data][:attributes][:routes][0]).to have_key :distance_to_route
+    expect(routes_data[:data][:attributes][:routes][0]).to have_key :distance_to_route
   end
 end

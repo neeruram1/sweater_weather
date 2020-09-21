@@ -1,4 +1,4 @@
-class Api::V1::BackgroundController < ApplicationController
+class Api::V1::BackgroundController < Api::V1::BaseController
   def index
     render json: serialize_image(image(location))
   end

@@ -2,12 +2,10 @@ require 'rails_helper'
 
 describe "Can use coordinates to return forecast" do
   it "Can use coordinates to pull data back from weather API", :vcr do
-    location = 'denver, co'
     latitude = 39.738453
     longitude = -104.984853
     coords = {lat: latitude.round(2), lon: longitude.round(2)}
 
-    mapquest_service = MapquestService.new
     weather_service = WeatherService.new
 
     response = weather_service.forecast(coords)

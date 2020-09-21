@@ -5,9 +5,10 @@ describe 'Climbing routes facade' do
       facade = ClimbingRoutesFacade.new
       latitude = 39.738453
       longitude = -104.984853
+      coordinates = {lat: latitude.round(2), lon: longitude.round(2)}
 
-      expect(facade.coords[:lat]).to eq(latitude.round(2))
-      expect(facade.coords[:lon]).to eq(longitude.round(2))
+      expect(facade.coords(coordinates)[:lat]).to eq(latitude.round(2))
+      expect(facade.coords(coordinates)[:lon]).to eq(longitude.round(2))
     end
   end
 end

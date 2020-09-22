@@ -52,13 +52,13 @@ describe 'A user can plan a road trip' do
 
     error = JSON.parse(response.body, symbolize_names: true)
 
-    expect(error[:errors]).to have_key(:status)
-    expect(error[:errors]).to have_key(:title)
-    expect(error[:errors]).to have_key(:detail)
+    expect(error[:errors][0]).to have_key(:code)
+    expect(error[:errors][0]).to have_key(:title)
+    expect(error[:errors][0]).to have_key(:detail)
 
-    expect(error[:errors][:status]).to eq(401)
-    expect(error[:errors][:title]).to eq('Unauthorized')
-    expect(error[:errors][:detail]).to eq('Invalid credentials')
+    expect(error[:errors][0][:code]).to eq(401)
+    expect(error[:errors][0][:title]).to eq('Unauthorized')
+    expect(error[:errors][0][:detail]).to eq('Cannot verify your api key')
   end
 
   it "User can't plan road trip if no api key sent", :vcr do
@@ -80,14 +80,12 @@ describe 'A user can plan a road trip' do
 
     error = JSON.parse(response.body, symbolize_names: true)
 
-    expect(error[:errors]).to have_key(:status)
-    expect(error[:errors]).to have_key(:title)
-    expect(error[:errors]).to have_key(:detail)
+    expect(error[:errors][0]).to have_key(:code)
+    expect(error[:errors][0]).to have_key(:title)
+    expect(error[:errors][0]).to have_key(:detail)
 
-    expect(error[:errors][:status]).to eq(401)
-    expect(error[:errors][:title]).to eq('Unauthorized')
-    expect(error[:errors][:detail]).to eq('Invalid credentials')
+    expect(error[:errors][0][:code]).to eq(401)
+    expect(error[:errors][0][:title]).to eq('Unauthorized')
+    expect(error[:errors][0][:detail]).to eq('Cannot verify your api key')
   end
 end
-
-#only logged in users can plan road trips, invalid api key sent, no api key sent

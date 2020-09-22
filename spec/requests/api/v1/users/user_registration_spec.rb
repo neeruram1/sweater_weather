@@ -31,13 +31,14 @@ describe "User registration" do
     post '/api/v1/users', params: body
 
     expect(response).to_not be_successful
+
     response.content_type == "application/json"
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(401)
-    expect(user[:errors][0][:title]).to eq('Unauthorized')
-    expect(user[:errors][0][:detail]).to eq("Password confirmation doesn't match Password")
+    expect(user[:errors][:code]).to eq(401)
+    expect(user[:errors][:title]).to eq('Unauthorized')
+    expect(user[:errors][:detail]).to eq("Password confirmation doesn't match Password")
   end
 
   it "Sends back an error message if email has been taken", :vcr do
@@ -56,9 +57,9 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(401)
-    expect(user[:errors][0][:title]).to eq('Unauthorized')
-    expect(user[:errors][0][:detail]).to eq("Email has already been taken")
+    expect(user[:errors][:code]).to eq(401)
+    expect(user[:errors][:title]).to eq('Unauthorized')
+    expect(user[:errors][:detail]).to eq("Email has already been taken")
   end
 
   it "Sends back an error message if email is empty", :vcr do
@@ -75,9 +76,9 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(401)
-    expect(user[:errors][0][:title]).to eq('Unauthorized')
-    expect(user[:errors][0][:detail]).to eq("Email can't be blank")
+    expect(user[:errors][:code]).to eq(401)
+    expect(user[:errors][:title]).to eq('Unauthorized')
+    expect(user[:errors][:detail]).to eq("Email can't be blank")
   end
 
   it "Sends back an error message if password is empty", :vcr do
@@ -94,9 +95,9 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(401)
-    expect(user[:errors][0][:title]).to eq('Unauthorized')
-    expect(user[:errors][0][:detail]).to eq("Password can't be blank")
+    expect(user[:errors][:code]).to eq(401)
+    expect(user[:errors][:title]).to eq('Unauthorized')
+    expect(user[:errors][:detail]).to eq("Password can't be blank")
   end
 
   it "Sends back an error message if password confirmation is empty", :vcr do
@@ -113,9 +114,9 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(401)
-    expect(user[:errors][0][:title]).to eq('Unauthorized')
-    expect(user[:errors][0][:detail]).to eq("Password confirmation doesn't match Password")
+    expect(user[:errors][:code]).to eq(401)
+    expect(user[:errors][:title]).to eq('Unauthorized')
+    expect(user[:errors][:detail]).to eq("Password confirmation doesn't match Password")
   end
 
   it "Can send back multiple error messages", :vcr do
@@ -132,9 +133,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(401)
-    expect(user[:errors][0][:title]).to eq('Unauthorized')
-    expect(user[:errors][0][:detail]).to eq("Email can't be blank")
-    expect(user[:errors][1][:detail]).to eq("Password confirmation doesn't match Password")
+    expect(user[:errors][:code]).to eq(401)
+    expect(user[:errors][:title]).to eq('Unauthorized')
+    expect(user[:errors][:detail]).to eq("Email can't be blank, Password confirmation doesn't match Password")
   end
 end

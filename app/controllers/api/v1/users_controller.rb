@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     if user.save
       render json: user_response(user)
     else
-      render json: errors(user, 401), status: :unauthorized
+      render_json_validation_error :unauthorized, user
     end
   end
 

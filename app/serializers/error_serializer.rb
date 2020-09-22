@@ -17,7 +17,7 @@ class ErrorSerializer
 
   def invalid_credentials
     json = {}
-    json[:errors] = { status: 'Invalid Authentication', title: 'Bad Request', detail: 'Invalid credentials' }
+    json[:errors] = { status: @status, title: 'Unauthorized', detail: 'Invalid credentials' }
     json
   end
 end

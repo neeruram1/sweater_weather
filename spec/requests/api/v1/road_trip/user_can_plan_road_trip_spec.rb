@@ -52,13 +52,13 @@ describe 'A user can plan a road trip' do
 
     error = JSON.parse(response.body, symbolize_names: true)
 
-    expect(road_trip[:errors]).to have_key(:status)
-    expect(road_trip[:errors]).to have_key(:title)
-    expect(road_trip[:errors]).to have_key(:detail)
+    expect(error[:errors]).to have_key(:status)
+    expect(error[:errors]).to have_key(:title)
+    expect(error[:errors]).to have_key(:detail)
 
-    expect(road_trip[:errors][:status]).to eq('401')
-    expect(road_trip[:errors][:title]).to eq('Unauthorized')
-    expect(road_trip[:errors][:detail]).to eq('Invalid credentials')
+    expect(error[:errors][:status]).to eq(401)
+    expect(error[:errors][:title]).to eq('Unauthorized')
+    expect(error[:errors][:detail]).to eq('Invalid credentials')
   end
 end
 

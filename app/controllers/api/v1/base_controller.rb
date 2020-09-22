@@ -3,11 +3,11 @@ class Api::V1::BaseController < ApplicationController
     params.permit(:location)
   end
 
-  def invalid_credentials(user, status)
-    ErrorSerializer.new(user, status).invalid_credentials
+  def errors(user, status)
+    ErrorSerializer.new(user, status).errors
   end
 
-  def serialize_errors(data, status)
-    ErrorSerializer.new(data, status).errors
+  def user_response(user)
+    UserSerializer.new(user)
   end
 end

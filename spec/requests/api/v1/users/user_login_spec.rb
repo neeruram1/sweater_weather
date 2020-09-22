@@ -36,13 +36,12 @@ describe "User login" do
       post '/api/v1/sessions', params: body
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       response.content_type == "application/json"
-
       user = JSON.parse(response.body, symbolize_names: true)
-
+      
       expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq(400)
+      expect(user[:errors][:status]).to eq(401)
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
@@ -60,13 +59,13 @@ describe "User login" do
       post '/api/v1/sessions', params: body
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       response.content_type == "application/json"
 
       user = JSON.parse(response.body, symbolize_names: true)
 
       expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq(400)
+      expect(user[:errors][:status]).to eq(401)
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
@@ -84,13 +83,13 @@ describe "User login" do
       post '/api/v1/sessions', params: body
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       response.content_type == "application/json"
 
       user = JSON.parse(response.body, symbolize_names: true)
 
       expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq(400)
+      expect(user[:errors][:status]).to eq(401)
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail

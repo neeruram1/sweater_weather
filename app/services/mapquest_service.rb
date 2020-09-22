@@ -3,7 +3,7 @@ class MapquestService
     to_json_address("?&location=#{location}")[:results].first
   end
 
-  def distance_between_routes(coords1, coords2)
+  def length_between_routes(coords1, coords2)
     to_json_route("?&from=#{coords1}&to=#{coords2}")
   end
 

@@ -31,7 +31,7 @@ describe 'Getting latitude and longitude from Mapquest API' do
     coords2 = "#{latitude2}"+','+"#{longitude2}"
 
     service = MapquestService.new
-    response = service.distance_between_routes(coords1, coords2)
+    response = service.length_between_routes(coords1, coords2)
     expect(response).to be_a Hash
     expect(response[:route]).to have_key :distance
   end
@@ -46,7 +46,7 @@ describe 'Getting latitude and longitude from Mapquest API' do
     coords2 = "#{latitude2}"+','+"#{longitude2}"
 
     service = MapquestService.new
-    response = service.distance_between_routes(coords1, coords2)
+    response = service.length_between_routes(coords1, coords2)
     expect(response).to be_a Hash
     expect(response[:route]).to have_key :realTime
   end

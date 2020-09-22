@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_134112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "arrival_forecast"
+    t.float "arrival_temperature"
+    t.string "arrival_forecast_description"
     t.index ["user_id"], name: "index_road_trips_on_user_id"
   end
 

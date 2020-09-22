@@ -6,7 +6,8 @@ describe RoadTrip, type: :model do
     it { should validate_presence_of :origin }
     it { should validate_presence_of :destination }
     it { should validate_presence_of :travel_time }
-    it { should validate_presence_of :arrival_forecast }
+    it { should validate_presence_of :arrival_forecast_description }
+    it { should validate_presence_of :arrival_temperature}
   end
 
   describe 'relationships' do

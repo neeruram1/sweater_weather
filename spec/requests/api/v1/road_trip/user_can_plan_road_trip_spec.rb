@@ -20,18 +20,17 @@ describe 'A user can plan a road trip' do
     road_trip = JSON.parse(response.body, symbolize_names: true)
 
     expect(road_trip[:data]).to have_key(:type)
-    expect(road_trip[:data][:type]).to eq('road trip')
+    expect(road_trip[:data][:type]).to eq('road_trip')
     expect(road_trip[:data]).to have_key(:id)
     expect(road_trip[:data]).to have_key(:relationships)
     expect(road_trip[:data][:relationships]).to have_key(:user)
     expect(road_trip[:data][:relationships][:user]).to have_key(:data)
     expect(road_trip[:data][:relationships][:user]).to have_key(:data)
-    expect(road_trip[:data][:attributes]).to have_key(:origin_location)
-    expect(road_trip[:data][:attributes]).to have_key(:destination_location)
+    expect(road_trip[:data][:attributes]).to have_key(:origin)
+    expect(road_trip[:data][:attributes]).to have_key(:destination)
     expect(road_trip[:data][:attributes]).to have_key(:travel_time)
-    expect(road_trip[:data][:attributes]).to have_key(:arrival_forecast)
-    expect(road_trip[:data][:attributes][:arrival_forecast]).to have_key(:temperature)
-    expect(road_trip[:data][:attributes][:arrival_forecast]).to have_key(:description)
+    expect(road_trip[:data][:attributes]).to have_key(:arrival_temperature)
+    expect(road_trip[:data][:attributes]).to have_key(:arrival_forecast_description)
   end
 end
 

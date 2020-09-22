@@ -48,6 +48,6 @@ describe 'Getting latitude and longitude from Mapquest API' do
     service = MapquestService.new
     response = service.length_between_routes(coords1, coords2)
     expect(response).to be_a Hash
-    expect(response[:route]).to have_key :realTime
+    expect(response[:route]).to have_key :formattedTime
   end
 end

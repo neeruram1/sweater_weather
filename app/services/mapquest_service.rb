@@ -10,7 +10,7 @@ class MapquestService
   private
 
   def to_json_address(url)
-    response = conn.get(url)
+    response = conn_address.get(url)
     JSON.parse(response.body, symbolize_names: true)
   end
 

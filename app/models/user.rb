@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
-  has_many :road_trips
+  has_many :road_trips, dependent: destroy
   has_secure_password
 
   before_create do

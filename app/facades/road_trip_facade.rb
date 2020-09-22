@@ -10,7 +10,7 @@ class RoadTripFacade
   end
 
   def forecast_temp(params)
-   weather.forecast(params[:destination]).current_forecast.current_temp
+    weather.forecast(params[:destination]).current_forecast.current_temp
   end
 
   def forecast_description(params)
@@ -19,7 +19,7 @@ class RoadTripFacade
 
   def coords(location)
     data = mapquest_service.coords(location)
-    "#{data[:locations][0][:latLng][:lat]}" + ',' + "#{data[:locations][0][:latLng][:lng]}"
+    data[:locations][0][:latLng][:lat].to_s + ',' + data[:locations][0][:latLng][:lng].to_s
   end
 
   private

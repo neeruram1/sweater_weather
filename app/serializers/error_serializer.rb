@@ -8,7 +8,7 @@ class ErrorSerializer
     json = {}
     error_hash = @model.errors.to_hash(true).map do |_, values|
       values.map do |details|
-        { status: @status, title: 'Bad Request', detail: details }
+        { status: @status, title: 'Unauthorized', detail: details }
       end
     end.flatten
     json[:errors] = error_hash

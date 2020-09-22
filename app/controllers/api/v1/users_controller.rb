@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     if user.save
       render json: serialize_user(user)
     else
-      render json: serialize_errors(user, 400), status: :bad_request
+      render json: serialize_errors(user, 401), status: :unauthorized
     end
   end
 
@@ -16,9 +16,5 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def user_params
     params.permit(:email, :password, :password_confirmation)
-  end
-
-  def serialize_errors(data, status)
-    ErrorSerializer.new(data, status).errors
   end
 end

@@ -35,8 +35,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(400)
-    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:status]).to eq(401)
+    expect(user[:errors][0][:title]).to eq('Unauthorized')
     expect(user[:errors][0][:detail]).to eq("Password confirmation doesn't match Password")
   end
 
@@ -56,8 +56,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(400)
-    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:status]).to eq(401)
+    expect(user[:errors][0][:title]).to eq('Unauthorized')
     expect(user[:errors][0][:detail]).to eq("Email has already been taken")
   end
 
@@ -75,8 +75,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(400)
-    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:status]).to eq(401)
+    expect(user[:errors][0][:title]).to eq('Unauthorized')
     expect(user[:errors][0][:detail]).to eq("Email can't be blank")
   end
 
@@ -94,8 +94,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(400)
-    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:status]).to eq(401)
+    expect(user[:errors][0][:title]).to eq('Unauthorized')
     expect(user[:errors][0][:detail]).to eq("Password can't be blank")
   end
 
@@ -113,8 +113,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(400)
-    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:status]).to eq(401)
+    expect(user[:errors][0][:title]).to eq('Unauthorized')
     expect(user[:errors][0][:detail]).to eq("Password confirmation doesn't match Password")
   end
 
@@ -132,8 +132,8 @@ describe "User registration" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user[:errors][0][:status]).to eq(400)
-    expect(user[:errors][0][:title]).to eq("Bad Request")
+    expect(user[:errors][0][:status]).to eq(401)
+    expect(user[:errors][0][:title]).to eq('Unauthorized')
     expect(user[:errors][0][:detail]).to eq("Email can't be blank")
     expect(user[:errors][1][:detail]).to eq("Password confirmation doesn't match Password")
   end

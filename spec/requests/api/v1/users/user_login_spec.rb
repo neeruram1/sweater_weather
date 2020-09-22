@@ -46,6 +46,12 @@ describe "User login" do
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Bad Request')
       expect(user[:errors]).to have_key :detail
-      expect(user[:errors][:detail]).to eq('Password not authenticated')
+      expect(user[:errors][:detail]).to eq('Invalid credentials')
+    end
+
+    it "A user can't login with an invalid password and email combination" do
+
     end
   end
+
+  #sadpath - email and password don't match, email not in system

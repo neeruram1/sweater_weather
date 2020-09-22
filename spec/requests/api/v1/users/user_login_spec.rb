@@ -40,12 +40,12 @@ describe "User login" do
       response.content_type == "application/json"
       user = JSON.parse(response.body, symbolize_names: true)
 
-      expect(user[:errors][0]).to have_key :code
-      expect(user[:errors][0][:code]).to eq(401)
-      expect(user[:errors][0]).to have_key :title
-      expect(user[:errors][0][:title]).to eq('Unauthorized')
-      expect(user[:errors][0]).to have_key :detail
-      expect(user[:errors][0][:detail]).to eq('Invalid credentials given')
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
+      expect(user[:errors]).to have_key :title
+      expect(user[:errors][:title]).to eq('Unauthorized')
+      expect(user[:errors]).to have_key :detail
+      expect(user[:errors][:detail]).to eq('Invalid credentials given')
     end
 
     it "A user can't login with an invalid email" do
@@ -64,12 +64,12 @@ describe "User login" do
 
       user = JSON.parse(response.body, symbolize_names: true)
 
-      expect(user[:errors][0]).to have_key :code
-      expect(user[:errors][0][:code]).to eq(401)
-      expect(user[:errors][0]).to have_key :title
-      expect(user[:errors][0][:title]).to eq('Unauthorized')
-      expect(user[:errors][0]).to have_key :detail
-      expect(user[:errors][0][:detail]).to eq('Invalid credentials given')
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
+      expect(user[:errors]).to have_key :title
+      expect(user[:errors][:title]).to eq('Unauthorized')
+      expect(user[:errors]).to have_key :detail
+      expect(user[:errors][:detail]).to eq('Invalid credentials given')
     end
 
     it "A user can't login with a blank password" do
@@ -88,11 +88,11 @@ describe "User login" do
 
       user = JSON.parse(response.body, symbolize_names: true)
 
-      expect(user[:errors][0]).to have_key :code
-      expect(user[:errors][0][:code]).to eq(401)
-      expect(user[:errors][0]).to have_key :title
-      expect(user[:errors][0][:title]).to eq('Unauthorized')
-      expect(user[:errors][0]).to have_key :detail
-      expect(user[:errors][0][:detail]).to eq('Invalid credentials given')
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
+      expect(user[:errors]).to have_key :title
+      expect(user[:errors][:title]).to eq('Unauthorized')
+      expect(user[:errors]).to have_key :detail
+      expect(user[:errors][:detail]).to eq('Invalid credentials given')
     end
   end

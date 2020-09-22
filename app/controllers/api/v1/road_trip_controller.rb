@@ -1,22 +1,13 @@
 class Api::V1::RoadTripController < Api::V1::BaseController
+  before_action :find_by_api_key, only: [:create]
+
   def create
-    user = User.find_by(api_key: params[:api_key])
-    if user.nil?
-      render_json_error :unauthorized, :incorrect_api_key
-    else
-      road_trip = road_trip(road_trip_params, user)
-      options = { include: [:user] }
-      render json: RoadTripSerializer.new(road_trip, options), status: :ok
-    end
+    @user.nil? ? errors(:unauthorized, :incorrect_api_key) : create_road_trip(trip_params, @user)
   end
 
   private
 
-  def road_trip_params
+  def trip_params
     params.permit(:origin, :destination, :api_key)
-  end
-
-  def road_trip(road_trip_params, user)
-    RoadTripFacade.new.road_trip(road_trip_params, user)
   end
 end

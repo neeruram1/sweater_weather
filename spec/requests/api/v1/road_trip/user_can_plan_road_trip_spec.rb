@@ -3,8 +3,6 @@ describe 'A user can plan a road trip' do
   it "User can send two locations and plan a road trip", :vcr do
     michael = User.create(email: 'michael@bluthco.org', password: 'banana', password_confirmation: 'banana')
 
-    post '/api/v1/sessions', params: body
-
     body = {
       origin: 'denver, co',
       destination: 'boulder, co',
@@ -52,13 +50,13 @@ describe 'A user can plan a road trip' do
 
     error = JSON.parse(response.body, symbolize_names: true)
 
-    expect(error[:errors][0]).to have_key(:code)
-    expect(error[:errors][0]).to have_key(:title)
-    expect(error[:errors][0]).to have_key(:detail)
+    expect(error[:errors]).to have_key(:code)
+    expect(error[:errors]).to have_key(:title)
+    expect(error[:errors]).to have_key(:detail)
 
-    expect(error[:errors][0][:code]).to eq(401)
-    expect(error[:errors][0][:title]).to eq('Unauthorized')
-    expect(error[:errors][0][:detail]).to eq('Cannot verify your api key')
+    expect(error[:errors][:code]).to eq(401)
+    expect(error[:errors][:title]).to eq('Unauthorized')
+    expect(error[:errors][:detail]).to eq('Cannot verify your api key')
   end
 
   it "User can't plan road trip if no api key sent", :vcr do
@@ -80,12 +78,12 @@ describe 'A user can plan a road trip' do
 
     error = JSON.parse(response.body, symbolize_names: true)
 
-    expect(error[:errors][0]).to have_key(:code)
-    expect(error[:errors][0]).to have_key(:title)
-    expect(error[:errors][0]).to have_key(:detail)
+    expect(error[:errors]).to have_key(:code)
+    expect(error[:errors]).to have_key(:title)
+    expect(error[:errors]).to have_key(:detail)
 
-    expect(error[:errors][0][:code]).to eq(401)
-    expect(error[:errors][0][:title]).to eq('Unauthorized')
-    expect(error[:errors][0][:detail]).to eq('Cannot verify your api key')
+    expect(error[:errors][:code]).to eq(401)
+    expect(error[:errors][:title]).to eq('Unauthorized')
+    expect(error[:errors][:detail]).to eq('Cannot verify your api key')
   end
 end

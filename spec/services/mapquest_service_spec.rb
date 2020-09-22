@@ -21,18 +21,33 @@ describe 'Getting latitude and longitude from Mapquest API' do
     expect(response[:locations][0][:latLng][:lng]).to eq(longitude)
   end
 
-    it "Can get the distance between two routes", :vcr do
-      latitude1 = 39.738453
-      longitude1 = -104.984853
-      coords1 = "#{latitude1}"+','+"#{longitude1}"
+  it "Can get the distance between two routes", :vcr do
+    latitude1 = 39.738453
+    longitude1 = -104.984853
+    coords1 = "#{latitude1}"+','+"#{longitude1}"
 
-      latitude2 = 39.616
-      longitude2 = -105.214
-      coords2 = "#{latitude2}"+','+"#{longitude2}"
+    latitude2 = 39.616
+    longitude2 = -105.214
+    coords2 = "#{latitude2}"+','+"#{longitude2}"
 
-      service = MapquestService.new
-      response = service.distance_between_routes(coords1, coords2)
-      expect(response).to be_a Hash
-      expect(response[:route]).to have_key :distance
+    service = MapquestService.new
+    response = service.distance_between_routes(coords1, coords2)
+    expect(response).to be_a Hash
+    expect(response[:route]).to have_key :distance
+  end
+
+  it "Can get the travel time between two routes", :vcr do
+    latitude1 = 39.738453
+    longitude1 = -104.984853
+    coords1 = "#{latitude1}"+','+"#{longitude1}"
+
+    latitude2 = 39.616
+    longitude2 = -105.214
+    coords2 = "#{latitude2}"+','+"#{longitude2}"
+
+    service = MapquestService.new
+    response = service.distance_between_routes(coords1, coords2)
+    expect(response).to be_a Hash
+    expect(response[:route]).to have_key :realTime
   end
 end

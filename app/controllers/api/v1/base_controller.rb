@@ -1,4 +1,5 @@
 class Api::V1::BaseController < ApplicationController
+  include Serviceable
   def location
     params.permit(:location)
   end
@@ -20,7 +21,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def create_road_trip(params, user)
-    road_trip = RoadTripFacade.new.road_trip(params, user)
+    road_trip = @user.road_trips.create(RoadTripFacade.new.road_trip_data(params))
     options = { include: [:user] }
     render json: RoadTripSerializer.new(road_trip, options), status: :ok
   end

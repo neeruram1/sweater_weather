@@ -6,7 +6,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
       errors(:unauthorized, :invalid_login_email)
     elsif @user.authenticate(params[:password])
       login_user(UserSerializer.new(@user))
-    else @user.authenticate(params[:password]) == false
+    else
       errors(:unauthorized, :invalid_login_password)
     end
   end

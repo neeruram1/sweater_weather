@@ -1,6 +1,5 @@
 class Api::V1::BaseController < ApplicationController
   include Serviceable
-  
   def register_user(user)
     render json: user, status: :created
   end
@@ -23,11 +22,11 @@ class Api::V1::BaseController < ApplicationController
 
   def errors(status, input)
     error =
-    {
-      title: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.title") : status.to_s.capitalize,
-      code: status_code(status),
-      detail: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.detail") : input.errors.full_messages.join(', ')
-    }
+      {
+        title: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.title") : status.to_s.capitalize,
+        code: status_code(status),
+        detail: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.detail") : input.errors.full_messages.join(', ')
+      }
     render json: { errors: error }, status: status
   end
 

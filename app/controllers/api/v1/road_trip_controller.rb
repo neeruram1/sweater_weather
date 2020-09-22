@@ -14,6 +14,6 @@ class Api::V1::RoadTripController < Api::V1::BaseController
   def create_road_trip(params)
     road_trip = @user.road_trips.create(RoadTripFacade.new.road_trip_data(params))
     options = { include: [:user] }
-    render json: RoadTripSerializer.new(road_trip, options), status: :created
+    road_trip_created(RoadTripSerializer.new(road_trip, options))
   end
 end

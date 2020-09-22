@@ -1,13 +1,13 @@
 class Api::V1::SessionsController < Api::V1::BaseController
-  before_action :find_user, only: [:create]
+  before_action :find_user_by_email, only: [:create]
 
   def create
     if @user.nil?
-      errors(:unauthorized, :invalid_login)
+      errors(:unauthorized, :invalid_login_email)
     elsif @user.authenticate(params[:password])
-      register_user(UserSerializer.new(@user))
-    else
-      errors(:unauthorized, :invalid_login)
+      login_user(UserSerializer.new(@user))
+    else @user.authenticate(params[:password]) == false
+      errors(:unauthorized, :invalid_login_password)
     end
   end
 

@@ -1,5 +1,5 @@
 class ImageFacade
-  def image_data(location)
+  def data(location)
     results = ImageService.new.background_img(location)
     {
       id: nil,

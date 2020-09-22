@@ -12,7 +12,7 @@ describe 'A user can plan a road trip' do
     post '/api/v1/road_trip', params: body
 
     expect(response).to be_successful
-    expect(response.status).to eq(200)
+    expect(response.status).to eq(201)
     response.content_type == "application/json"
 
     road_trip = JSON.parse(response.body, symbolize_names: true)

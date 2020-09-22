@@ -1,18 +1,19 @@
 class Api::V1::BaseController < ApplicationController
   include Serviceable
-  def location
-    params.permit(:location)
-  end
-
+  
   def register_user(user)
-    render json: user
+    render json: user, status: :created
   end
 
-  def find_user
+  def login_user(user)
+    render json: user, status: :ok
+  end
+
+  def find_user_by_email
     @user = User.find_by(email: params[:email])
   end
 
-  def find_by_api_key
+  def find_user_by_api_key
     @user = User.find_by(api_key: params[:api_key])
   end
 
@@ -20,16 +21,13 @@ class Api::V1::BaseController < ApplicationController
     @user = User.new(user_params)
   end
 
-  def create_road_trip(params, user)
-    road_trip = @user.road_trips.create(RoadTripFacade.new.road_trip_data(params))
-    options = { include: [:user] }
-    render json: RoadTripSerializer.new(road_trip, options), status: :ok
-  end
-
   def errors(status, input)
-    error = { title: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.title") : status.to_s.capitalize,
-    code: status_code(status),
-    detail: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.detail") : input.errors.full_messages.join(', ') }
+    error =
+    {
+      title: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.title") : status.to_s.capitalize,
+      code: status_code(status),
+      detail: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.detail") : input.errors.full_messages.join(', ')
+    }
     render json: { errors: error }, status: status
   end
 

@@ -1,0 +1,255 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/geocoding/v1/address?key=<mapquest_key>&location=denver,%20co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2020 13:16:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1735'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Tue, 22 Sep 2020 13:16:31 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=07571C72ADCECD596E29B7315759C738; Path=/; HttpOnly
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2020 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2020 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"denver,
+        co"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282041090","unknownInput":"","type":"s","latLng":{"lat":39.738453,"lng":-104.984853},"displayLatLng":{"lat":39.738453,"lng":-104.984853},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-264119365"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"Denver
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A4XAX","geocodeQuality":"COUNTY","dragPoint":false,"sideOfStreet":"N","linkId":"282932003","unknownInput":"","type":"s","latLng":{"lat":39.738453,"lng":-104.984853},"displayLatLng":{"lat":39.738453,"lng":-104.984853},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-2&scalebar=true&zoom=9&rand=1447242312"}]}]}'
+  recorded_at: Tue, 22 Sep 2020 13:16:30 GMT
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/geocoding/v1/address?key=<mapquest_key>&location=boulder,%20co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2020 13:16:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1732'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Tue, 22 Sep 2020 13:16:31 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=1C0DAA37424CD16BE3B38478B7CB9EFC; Path=/; HttpOnly
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2020 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2020 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"boulder,
+        co"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Boulder","adminArea5Type":"City","adminArea4":"Boulder
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282039983","unknownInput":"","type":"s","latLng":{"lat":40.015831,"lng":-105.27927},"displayLatLng":{"lat":40.015831,"lng":-105.27927},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&type=map&size=225,160&locations=40.015831,-105.27927|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-1276304422"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"Boulder
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A4XAX","geocodeQuality":"COUNTY","dragPoint":false,"sideOfStreet":"N","linkId":"282931994","unknownInput":"","type":"s","latLng":{"lat":40.015831,"lng":-105.27927},"displayLatLng":{"lat":40.015831,"lng":-105.27927},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&type=map&size=225,160&locations=40.015831,-105.27927|marker-sm-50318A-2&scalebar=true&zoom=9&rand=-5589963"}]}]}'
+  recorded_at: Tue, 22 Sep 2020 13:16:30 GMT
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/directions/v2/route?from=%7B:providedLocation=%3E%7B:location=%3E%22denver,%20co%22%7D,%20:locations=%3E%5B%7B:street=%3E%22%22,%20:adminArea6=%3E%22%22,%20:adminArea6Type=%3E%22Neighborhood%22,%20:adminArea5=%3E%22Denver%22,%20:adminArea5Type=%3E%22City%22,%20:adminArea4=%3E%22Denver%20County%22,%20:adminArea4Type=%3E%22County%22,%20:adminArea3=%3E%22CO%22,%20:adminArea3Type=%3E%22State%22,%20:adminArea1=%3E%22US%22,%20:adminArea1Type=%3E%22Country%22,%20:postalCode=%3E%22%22,%20:geocodeQualityCode=%3E%22A5XAX%22,%20:geocodeQuality=%3E%22CITY%22,%20:dragPoint=%3Efalse,%20:sideOfStreet=%3E%22N%22,%20:linkId=%3E%22282041090%22,%20:unknownInput=%3E%22%22,%20:type=%3E%22s%22,%20:latLng=%3E%7B:lat=%3E39.738453,%20:lng=%3E-104.984853%7D,%20:displayLatLng=%3E%7B:lat=%3E39.738453,%20:lng=%3E-104.984853%7D,%20:mapUrl=%3E%22http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&key=<mapquest_key>&locations=40.015831,-105.27927%7Cmarker-sm-50318A-2&rand=-5589963%22%7D%5D%7D&scalebar=true&size=225,160&to=%7B:providedLocation=%3E%7B:location=%3E%22boulder,%20co%22%7D,%20:locations=%3E%5B%7B:street=%3E%22%22,%20:adminArea6=%3E%22%22,%20:adminArea6Type=%3E%22Neighborhood%22,%20:adminArea5=%3E%22Boulder%22,%20:adminArea5Type=%3E%22City%22,%20:adminArea4=%3E%22Boulder%20County%22,%20:adminArea4Type=%3E%22County%22,%20:adminArea3=%3E%22CO%22,%20:adminArea3Type=%3E%22State%22,%20:adminArea1=%3E%22US%22,%20:adminArea1Type=%3E%22Country%22,%20:postalCode=%3E%22%22,%20:geocodeQualityCode=%3E%22A5XAX%22,%20:geocodeQuality=%3E%22CITY%22,%20:dragPoint=%3Efalse,%20:sideOfStreet=%3E%22N%22,%20:linkId=%3E%22282039983%22,%20:unknownInput=%3E%22%22,%20:type=%3E%22s%22,%20:latLng=%3E%7B:lat=%3E40.015831,%20:lng=%3E-105.27927%7D,%20:displayLatLng=%3E%7B:lat=%3E40.015831,%20:lng=%3E-105.27927%7D,%20:mapUrl=%3E%22http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&type=map&zoom=9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2020 13:16:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1023'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=5AEB8D342BD58A2E5E96ABE66B69525D; Path=/directions; HttpOnly
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Last-Modified:
+      - Tue, 22 Sep 2020 13:16:31 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJyb3V0ZSI6eyJyb3V0ZUVycm9yIjp7ImVycm9yQ29kZSI6MCwibWVzc2FnZSI6IiJ9fSwiaW5mbyI6eyJzdGF0dXNjb2RlIjo0MDAsImNvcHlyaWdodCI6eyJpbWFnZUFsdFRleHQiOiLCqSAyMDIwIE1hcFF1ZXN0LCBJbmMuIiwiaW1hZ2VVcmwiOiJodHRwOi8vYXBpLm1xY2RuLmNvbS9yZXMvbXFsb2dvLmdpZiIsInRleHQiOiLCqSAyMDIwIE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbIkVycm9yIHByb2Nlc3Npbmcgcm91dGUgcmVxdWVzdDogIiwiRXJyb3IgcGFyc2luZyBMb2NhdGlvbiBvYmplY3QgZnJvbSB0ZXh0ICd7OnByb3ZpZGVkTG9jYXRpb249Pns6bG9jYXRpb249PlwiZGVudmVyLCBjb1wifSwgOmxvY2F0aW9ucz0+W3s6c3RyZWV0PT5cIlwiLCA6YWRtaW5BcmVhNj0+XCJcIiwgOmFkbWluQXJlYTZUeXBlPT5cIk5laWdoYm9yaG9vZFwiLCA6YWRtaW5BcmVhNT0+XCJEZW52ZXJcIiwgOmFkbWluQXJlYTVUeXBlPT5cIkNpdHlcIiwgOmFkbWluQXJlYTQ9PlwiRGVudmVyIENvdW50eVwiLCA6YWRtaW5BcmVhNFR5cGU9PlwiQ291bnR5XCIsIDphZG1pbkFyZWEzPT5cIkNPXCIsIDphZG1pbkFyZWEzVHlwZT0+XCJTdGF0ZVwiLCA6YWRtaW5BcmVhMT0+XCJVU1wiLCA6YWRtaW5BcmVhMVR5cGU9PlwiQ291bnRyeVwiLCA6cG9zdGFsQ29kZT0+XCJcIiwgOmdlb2NvZGVRdWFsaXR5Q29kZT0+XCJBNVhBWFwiLCA6Z2VvY29kZVF1YWxpdHk9PlwiQ0lUWVwiLCA6ZHJhZ1BvaW50PT5mYWxzZSwgOnNpZGVPZlN0cmVldD0+XCJOXCIsIDpsaW5rSWQ9PlwiMjgyMDQxMDkwXCIsIDp1bmtub3duSW5wdXQ9PlwiXCIsIDp0eXBlPT5cInNcIiwgOmxhdExuZz0+ezpsYXQ9PjM5LjczODQ1MywgOmxuZz0+LTEwNC45ODQ4NTN9LCA6ZGlzcGxheUxhdExuZz0+ezpsYXQ9PjM5LjczODQ1MywgOmxuZz0+LTEwNC45ODQ4NTN9LCA6bWFwVXJsPT5cImh0dHA6Ly93d3cubWFwcXVlc3RhcGkuY29tL3N0YXRpY21hcC92NS9tYXA/a2V5PTxtYXBxdWVzdF9rZXk+Jy4iXX19
+  recorded_at: Tue, 22 Sep 2020 13:16:30 GMT
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/directions/v2/route?from=%7B:providedLocation=%3E%7B:location=%3E%22denver,%20co%22%7D,%20:locations=%3E%5B%7B:street=%3E%22%22,%20:adminArea6=%3E%22%22,%20:adminArea6Type=%3E%22Neighborhood%22,%20:adminArea5=%3E%22Denver%22,%20:adminArea5Type=%3E%22City%22,%20:adminArea4=%3E%22Denver%20County%22,%20:adminArea4Type=%3E%22County%22,%20:adminArea3=%3E%22CO%22,%20:adminArea3Type=%3E%22State%22,%20:adminArea1=%3E%22US%22,%20:adminArea1Type=%3E%22Country%22,%20:postalCode=%3E%22%22,%20:geocodeQualityCode=%3E%22A5XAX%22,%20:geocodeQuality=%3E%22CITY%22,%20:dragPoint=%3Efalse,%20:sideOfStreet=%3E%22N%22,%20:linkId=%3E%22282041090%22,%20:unknownInput=%3E%22%22,%20:type=%3E%22s%22,%20:latLng=%3E%7B:lat=%3E39.738453,%20:lng=%3E-104.984853%7D,%20:displayLatLng=%3E%7B:lat=%3E39.738453,%20:lng=%3E-104.984853%7D,%20:mapUrl=%3E%22http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&key=<mapquest_key>&locations=40.015831,-105.27927%7Cmarker-sm-50318A-2&rand=-5589963%22%7D%5D%7D&scalebar=true&size=225,160&to=%7B:providedLocation=%3E%7B:location=%3E%22boulder,%20co%22%7D,%20:locations=%3E%5B%7B:street=%3E%22%22,%20:adminArea6=%3E%22%22,%20:adminArea6Type=%3E%22Neighborhood%22,%20:adminArea5=%3E%22Boulder%22,%20:adminArea5Type=%3E%22City%22,%20:adminArea4=%3E%22Boulder%20County%22,%20:adminArea4Type=%3E%22County%22,%20:adminArea3=%3E%22CO%22,%20:adminArea3Type=%3E%22State%22,%20:adminArea1=%3E%22US%22,%20:adminArea1Type=%3E%22Country%22,%20:postalCode=%3E%22%22,%20:geocodeQualityCode=%3E%22A5XAX%22,%20:geocodeQuality=%3E%22CITY%22,%20:dragPoint=%3Efalse,%20:sideOfStreet=%3E%22N%22,%20:linkId=%3E%22282039983%22,%20:unknownInput=%3E%22%22,%20:type=%3E%22s%22,%20:latLng=%3E%7B:lat=%3E40.015831,%20:lng=%3E-105.27927%7D,%20:displayLatLng=%3E%7B:lat=%3E40.015831,%20:lng=%3E-105.27927%7D,%20:mapUrl=%3E%22http://www.mapquestapi.com/staticmap/v5/map?key=<mapquest_key>&type=map&zoom=9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2020 13:16:32 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1023'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=BC7F4EDB992F68F9E2FF37E6576A2B24; Path=/directions; HttpOnly
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Last-Modified:
+      - Tue, 22 Sep 2020 13:16:32 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJyb3V0ZSI6eyJyb3V0ZUVycm9yIjp7ImVycm9yQ29kZSI6MCwibWVzc2FnZSI6IiJ9fSwiaW5mbyI6eyJzdGF0dXNjb2RlIjo0MDAsImNvcHlyaWdodCI6eyJpbWFnZUFsdFRleHQiOiLCqSAyMDIwIE1hcFF1ZXN0LCBJbmMuIiwiaW1hZ2VVcmwiOiJodHRwOi8vYXBpLm1xY2RuLmNvbS9yZXMvbXFsb2dvLmdpZiIsInRleHQiOiLCqSAyMDIwIE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbIkVycm9yIHByb2Nlc3Npbmcgcm91dGUgcmVxdWVzdDogIiwiRXJyb3IgcGFyc2luZyBMb2NhdGlvbiBvYmplY3QgZnJvbSB0ZXh0ICd7OnByb3ZpZGVkTG9jYXRpb249Pns6bG9jYXRpb249PlwiZGVudmVyLCBjb1wifSwgOmxvY2F0aW9ucz0+W3s6c3RyZWV0PT5cIlwiLCA6YWRtaW5BcmVhNj0+XCJcIiwgOmFkbWluQXJlYTZUeXBlPT5cIk5laWdoYm9yaG9vZFwiLCA6YWRtaW5BcmVhNT0+XCJEZW52ZXJcIiwgOmFkbWluQXJlYTVUeXBlPT5cIkNpdHlcIiwgOmFkbWluQXJlYTQ9PlwiRGVudmVyIENvdW50eVwiLCA6YWRtaW5BcmVhNFR5cGU9PlwiQ291bnR5XCIsIDphZG1pbkFyZWEzPT5cIkNPXCIsIDphZG1pbkFyZWEzVHlwZT0+XCJTdGF0ZVwiLCA6YWRtaW5BcmVhMT0+XCJVU1wiLCA6YWRtaW5BcmVhMVR5cGU9PlwiQ291bnRyeVwiLCA6cG9zdGFsQ29kZT0+XCJcIiwgOmdlb2NvZGVRdWFsaXR5Q29kZT0+XCJBNVhBWFwiLCA6Z2VvY29kZVF1YWxpdHk9PlwiQ0lUWVwiLCA6ZHJhZ1BvaW50PT5mYWxzZSwgOnNpZGVPZlN0cmVldD0+XCJOXCIsIDpsaW5rSWQ9PlwiMjgyMDQxMDkwXCIsIDp1bmtub3duSW5wdXQ9PlwiXCIsIDp0eXBlPT5cInNcIiwgOmxhdExuZz0+ezpsYXQ9PjM5LjczODQ1MywgOmxuZz0+LTEwNC45ODQ4NTN9LCA6ZGlzcGxheUxhdExuZz0+ezpsYXQ9PjM5LjczODQ1MywgOmxuZz0+LTEwNC45ODQ4NTN9LCA6bWFwVXJsPT5cImh0dHA6Ly93d3cubWFwcXVlc3RhcGkuY29tL3N0YXRpY21hcC92NS9tYXA/a2V5PTxtYXBxdWVzdF9rZXk+Jy4iXX19
+  recorded_at: Tue, 22 Sep 2020 13:16:30 GMT
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/onecall?appid=<weather_key>&lat=&lon=&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Tue, 22 Sep 2020 13:16:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '44'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/onecall?lat=&lon=&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"cod":"400","message":"Nothing to geocode"}'
+  recorded_at: Tue, 22 Sep 2020 13:16:31 GMT
+recorded_with: VCR 6.0.0

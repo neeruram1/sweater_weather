@@ -1,9 +1,17 @@
 require 'rails_helper'
 describe 'A user can plan a road trip' do
-  it "User can send two locations and plan a road trip" do
+  it "User can send two locations and plan a road trip", :vcr do
     michael = User.create(email: 'michael@bluthco.org', password: 'banana', password_confirmation: 'banana')
 
-    post '/api/v1/road_trip'
+    post '/api/v1/sessions', params: body
+
+    body = {
+      origin: 'denver, co',
+      destination: 'boulder, co',
+      api_key: michael.api_key
+    }
+
+    post '/api/v1/road_trip', params: body
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
@@ -27,4 +35,4 @@ describe 'A user can plan a road trip' do
   end
 end
 
-#only logged in users can plan road trips
+#only logged in users can plan road trips, invalid api key sent, no api key sent

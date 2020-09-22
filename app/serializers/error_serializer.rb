@@ -6,18 +6,18 @@ class ErrorSerializer
 
   def errors
     json = {}
-      error_hash = @model.errors.to_hash(true).map do |__, values|
-        values.map do |details|
-          { status: @status, title: "Bad Request", detail: details }
-        end
-      end.flatten
-      json[:errors] = error_hash
+    error_hash = @model.errors.to_hash(true).map do |_, values|
+      values.map do |details|
+        { status: @status, title: 'Bad Request', detail: details }
+      end
+    end.flatten
+    json[:errors] = error_hash
     json
   end
 
   def invalid_credentials
     json = {}
-          json[:errors] = { status: 'Invalid Authentication', title: "Bad Request", detail: 'Invalid credentials' }
+    json[:errors] = { status: @status, title: 'Unauthorized', detail: 'Invalid credentials' }
     json
   end
 end

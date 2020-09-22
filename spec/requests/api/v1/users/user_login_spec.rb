@@ -42,9 +42,9 @@ describe "User login" do
       user = JSON.parse(response.body, symbolize_names: true)
 
       expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq('Invalid Authentication')
+      expect(user[:errors][:status]).to eq(400)
       expect(user[:errors]).to have_key :title
-      expect(user[:errors][:title]).to eq('Bad Request')
+      expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
       expect(user[:errors][:detail]).to eq('Invalid credentials')
     end
@@ -66,9 +66,9 @@ describe "User login" do
       user = JSON.parse(response.body, symbolize_names: true)
 
       expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq('Invalid Authentication')
+      expect(user[:errors][:status]).to eq(400)
       expect(user[:errors]).to have_key :title
-      expect(user[:errors][:title]).to eq('Bad Request')
+      expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
       expect(user[:errors][:detail]).to eq('Invalid credentials')
     end
@@ -90,9 +90,9 @@ describe "User login" do
       user = JSON.parse(response.body, symbolize_names: true)
 
       expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq('Invalid Authentication')
+      expect(user[:errors][:status]).to eq(400)
       expect(user[:errors]).to have_key :title
-      expect(user[:errors][:title]).to eq('Bad Request')
+      expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
       expect(user[:errors][:detail]).to eq('Invalid credentials')
     end

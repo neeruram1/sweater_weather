@@ -7,13 +7,13 @@ class Image
               :source_url,
               :author_profile_link
 
-  def initialize(results, location)
-    @id = nil
-    @source = 'Unsplash'
-    @location = location[:location]
-    @author = results[:results][0][:user][:name]
-    @image_url = results[:results][0][:urls][:raw]
-    @author_profile_link = results[:results][0][:user][:links][:html]
-    @source_url = 'https://unsplash.com/?utm_source=sweater_weather&utm_medium=referral'
+  def initialize(data)
+    @id = data[:id]
+    @source = data[:source]
+    @location = data[:location]
+    @author = data[:author]
+    @image_url = data[:image_url]
+    @author_profile_link = data[:author_profile_link]
+    @source_url = data[:source_url]
   end
 end

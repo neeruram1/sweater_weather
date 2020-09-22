@@ -1,14 +1,9 @@
 class Api::V1::BackgroundController < Api::V1::BaseController
   def index
-    render json: image_response(image(location))
-  end
-  private
-
-  def image(location)
-    ImageFacade.new.background_img(location)
+    render json: ImageSerializer.new(Image.new(data(location)))
   end
 
-  def image_response(data)
-    ImageSerializer.new(data)
+  def data(location)
+    ImageFacade.new.image_data(location)
   end
 end

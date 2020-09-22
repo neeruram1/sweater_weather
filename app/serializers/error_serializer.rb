@@ -14,4 +14,10 @@ class ErrorSerializer
       json[:errors] = error_hash
     json
   end
+
+  def invalid_authentication
+    json = {}
+          json[:errors] = { status: 'Invalid Authentication', title: "Bad Request", detail: 'Password not authenticated' }
+    json
+  end
 end

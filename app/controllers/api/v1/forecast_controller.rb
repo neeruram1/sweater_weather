@@ -5,10 +5,6 @@ class Api::V1::ForecastController < Api::V1::BaseController
 
   private
 
-  def location
-    params.permit(:location)
-  end
-
   def serialize_weather(data)
     WeatherSerializer.new(data)
   end

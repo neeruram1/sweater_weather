@@ -5,10 +5,6 @@ class Api::V1::BackgroundController < Api::V1::BaseController
 
   private
 
-  def location
-    params.permit(:location)
-  end
-
   def serialize_image(data)
     ImageSerializer.new(data)
   end

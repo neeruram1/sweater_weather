@@ -49,8 +49,28 @@ describe "User login" do
       expect(user[:errors][:detail]).to eq('Invalid credentials')
     end
 
-    it "A user can't login with an invalid password and email combination" do
+    it "A user can't login with an invalid email" do
+      michael = User.create(email: 'michael@bluthco.org', password: 'banana', password_confirmation: 'banana')
 
+      body = {
+        email: 'michael@blathco.org',
+        password: 'bananastand',
+      }
+
+      post '/api/v1/sessions', params: body
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      response.content_type == "application/json"
+
+      user = JSON.parse(response.body, symbolize_names: true)
+
+      expect(user[:errors]).to have_key :status
+      expect(user[:errors][:status]).to eq('Invalid Authentication')
+      expect(user[:errors]).to have_key :title
+      expect(user[:errors][:title]).to eq('Bad Request')
+      expect(user[:errors]).to have_key :detail
+      expect(user[:errors][:detail]).to eq('Invalid credentials')
     end
   end
 

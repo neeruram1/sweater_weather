@@ -36,17 +36,16 @@ describe "User login" do
       post '/api/v1/sessions', params: body
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       response.content_type == "application/json"
-
       user = JSON.parse(response.body, symbolize_names: true)
 
-      expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq(400)
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
-      expect(user[:errors][:detail]).to eq('Invalid credentials')
+      expect(user[:errors][:detail]).to eq('Invalid password given')
     end
 
     it "A user can't login with an invalid email" do
@@ -60,40 +59,65 @@ describe "User login" do
       post '/api/v1/sessions', params: body
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       response.content_type == "application/json"
 
       user = JSON.parse(response.body, symbolize_names: true)
 
-      expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq(400)
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
-      expect(user[:errors][:detail]).to eq('Invalid credentials')
+      expect(user[:errors][:detail]).to eq('Invalid email given')
     end
 
     it "A user can't login with a blank password" do
       michael = User.create(email: 'michael@bluthco.org', password: 'banana', password_confirmation: 'banana')
 
       body = {
-        email: 'michael@blathco.org',
+        email: 'michael@bluthco.org',
         password: '',
       }
 
       post '/api/v1/sessions', params: body
 
       expect(response).to_not be_successful
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
       response.content_type == "application/json"
 
       user = JSON.parse(response.body, symbolize_names: true)
 
-      expect(user[:errors]).to have_key :status
-      expect(user[:errors][:status]).to eq(400)
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
       expect(user[:errors]).to have_key :title
       expect(user[:errors][:title]).to eq('Unauthorized')
       expect(user[:errors]).to have_key :detail
-      expect(user[:errors][:detail]).to eq('Invalid credentials')
+      expect(user[:errors][:detail]).to eq('Invalid password given')
+    end
+
+
+    it "A user can't login with a blank email" do
+      michael = User.create(email: 'michael@bluthco.org', password: 'banana', password_confirmation: 'banana')
+
+      body = {
+        email: '',
+        password: 'banana',
+      }
+
+      post '/api/v1/sessions', params: body
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+      response.content_type == "application/json"
+
+      user = JSON.parse(response.body, symbolize_names: true)
+
+      expect(user[:errors]).to have_key :code
+      expect(user[:errors][:code]).to eq(401)
+      expect(user[:errors]).to have_key :title
+      expect(user[:errors][:title]).to eq('Unauthorized')
+      expect(user[:errors]).to have_key :detail
+      expect(user[:errors][:detail]).to eq('Invalid email given')
     end
   end

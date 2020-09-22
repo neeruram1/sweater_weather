@@ -1,0 +1,16 @@
+en:
+  error_messages:
+
+    # Login
+    invalid_login_email:
+      title: "Unauthorized"
+      detail: "Invalid email given"
+
+    invalid_login_password:
+      title: "Unauthorized"
+      detail: "Invalid password given"
+
+    #Road Trip
+    incorrect_api_key:
+      title: "Unauthorized"
+      detail: "Cannot verify your api key"

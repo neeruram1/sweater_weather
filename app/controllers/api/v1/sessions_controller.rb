@@ -1,13 +1,19 @@
 class Api::V1::SessionsController < Api::V1::BaseController
+  before_action :find_user_by_email, only: [:create]
+
   def create
-    user = User.find_by(email: params[:email])
-    if user.nil?
-      render json: ErrorSerializer.new(user, 400).invalid_credentials, status: :bad_request
-    elsif user.authenticate(params[:password])
-      session[:user_id] = user.id
-      render json: UserSerializer.new(user)
-    else
-      render json: ErrorSerializer.new(user, 400).invalid_credentials, status: :bad_request
+    if @user.nil?
+      errors(:unauthorized, :invalid_login_email)
+    elsif @user.authenticate(params[:password])
+      login_user(UserSerializer.new(@user))
+    else @user.authenticate(params[:password]) == false
+      errors(:unauthorized, :invalid_login_password)
     end
+  end
+
+  private
+
+  def session_params
+    params.permit(:email, :password)
   end
 end

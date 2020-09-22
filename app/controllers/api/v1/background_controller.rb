@@ -1,19 +1,11 @@
 class Api::V1::BackgroundController < Api::V1::BaseController
   def index
-    render json: serialize_image(image(location))
+    render json: ImageSerializer.new(Image.new(ImageFacade.new.data(image_params)))
   end
 
   private
 
-  def location
+  def image_params
     params.permit(:location)
-  end
-
-  def serialize_image(data)
-    ImageSerializer.new(data)
-  end
-
-  def image(location)
-    ImageFacade.new.background_img(location)
   end
 end

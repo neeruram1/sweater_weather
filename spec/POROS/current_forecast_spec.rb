@@ -13,7 +13,7 @@ describe CurrentForecast do
         sunset_time: 1600563710,
         description: 'few clouds',
         current_temp: 60,
-        sunrise_time: 1600519516,
+        sunrise_time: 1600519516
     }
 
     current = CurrentForecast.new(attrs)

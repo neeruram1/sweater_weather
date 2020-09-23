@@ -41,5 +41,5 @@ Sweater Weather is the backend of an application that correlates forecasts to sp
 - A Road Trip belongs to a User
 
 ## About
-- This project uses **Ruby 2.53** and **Rails 5.2.4**
+- This project uses **Ruby 2.5.3** and **Rails 5.2.4**
 - Created by Neeru Ram for the Backend program at the Turing School of Software & Design

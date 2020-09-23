@@ -50,4 +50,34 @@ describe 'Getting latitude and longitude from Mapquest API' do
     expect(response).to be_a Hash
     expect(response[:route]).to have_key :formattedTime
   end
+
+  it "Sends an error if no location sent", :vcr do
+    location = nil
+    service = MapquestService.new
+
+    response = service.coords(location)
+
+    expect(response).to be_a Hash
+
+    expect(response[:providedLocation]).to have_key :location
+
+    expect(response[:providedLocation][:location]).to eq("")
+    expect(response[:locations]).to eq([])
+  end
+
+  it "Sends an error if only one location is sent for travel_time method", :vcr do
+    latitude1 = nil
+    longitude1 = nil
+    coords1 = "#{latitude1}"+','+"#{longitude1}"
+
+    latitude2 = 39.616
+    longitude2 = -105.214
+    coords2 = "#{latitude2}"+','+"#{longitude2}"
+
+    service = MapquestService.new
+    response = service.length_between_routes(coords1, coords2)
+    
+    expect(response).to be_a Hash
+    expect(response[:info][:statuscode]).to eq(500)
+  end
 end

@@ -8,7 +8,8 @@ module Serviceable
   end
 
   def weather_data(location)
-    WeatherService.new.forecast(coordinates(location))
+    result = WeatherService.new.forecast(coordinates(location))
+    [result, location]
   end
 
   def lat_lng(location)

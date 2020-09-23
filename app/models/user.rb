@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_secure_password
 
   before_create do
-    self.api_key = SecureRandom.hex
+    self.api_key = SecureRandom.uuid
   end
 end

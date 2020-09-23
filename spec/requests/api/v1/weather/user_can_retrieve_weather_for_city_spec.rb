@@ -124,4 +124,19 @@ describe "User can request forecast for a city" do
     expect(hourly_forecasts[0]).to_not have_key :high_temp
     expect(hourly_forecasts[0]).to_not have_key :low_temp
   end
+
+  it "Returns an error if user enters no location", :vcr do
+    location = nil
+
+    get "/api/v1/forecast?location=#{location}"
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(400)
+    response.content_type == "application/json"
+
+    error = JSON.parse(response.body, symbolize_names: true)
+    expect(error[:errors][:title]).to eq('No Content')
+    expect(error[:errors][:code]).to eq(400)
+    expect(error[:errors][:detail]).to eq('Enter a valid location')
+  end
 end

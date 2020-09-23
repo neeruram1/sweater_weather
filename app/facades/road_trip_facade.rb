@@ -23,11 +23,11 @@ class RoadTripFacade
   end
 
   def current_temp(location)
-    weather_data(location)[:current][:temp]
+    weather_data(location)[0][:current][:temp]
   end
 
   def forecast_description(location)
-    weather_data(location)[:current][:weather][0][:description]
+    weather_data(location)[0][:current][:weather][0][:description]
   end
 
   def travel_time_service(origin, destination)

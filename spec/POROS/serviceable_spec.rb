@@ -19,10 +19,11 @@ describe Serviceable do
   end
 
   it "weather_data", :vcr do
-    expect(@fake.weather_data(@location)).to be_a Hash
-    expect(@fake.weather_data(@location)).to have_key :current
-    expect(@fake.weather_data(@location)).to have_key :daily
-    expect(@fake.weather_data(@location)).to have_key :hourly
+    expect(@fake.weather_data(@location)).to be_a Array
+    expect(@fake.weather_data(@location)[0]).to be_a Hash
+    expect(@fake.weather_data(@location)[0]).to have_key :current
+    expect(@fake.weather_data(@location)[0]).to have_key :daily
+    expect(@fake.weather_data(@location)[0]).to have_key :hourly
   end
 
   it "lat_lng", :vcr do

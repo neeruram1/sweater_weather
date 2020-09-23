@@ -2,14 +2,12 @@ require 'rails_helper'
 describe Weather do
   before(:each) do
     @attrs =
-    {
+    [{
       id: nil, daily: [{ dt: 1600530774, temp: { min: 45, max: 43 }, weather: [{ main: 'cool'}], precipitation: 4.0, day_of_week: 'Tuesday' }],
       hourly: [{ dt: 1600530774, temp: 45 }],
-      current: { uvi: 5, temp: 56, humidity: 65, feels_like: 45, visibility: 23, dt: 1600530774, weather: [{ main: 'this is fun' }], sunset: 1600530774, sunrise: 1600530774 }}
+      current: { uvi: 5, temp: 56, humidity: 65, feels_like: 45, visibility: 23, dt: 1600530774, weather: [{ main: 'this is fun' }], sunset: 1600530774, sunrise: 1600530774 }}, {location: 'denver, co'}]
 
-    location = 'denver, co'
-
-    @weather = Weather.new(@attrs, location)
+    @weather = Weather.new(@attrs)
   end
   it "Exists" do
     expect(@weather).to be_a Weather

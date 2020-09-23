@@ -14,3 +14,8 @@ en:
     incorrect_api_key:
       title: "Unauthorized"
       detail: "Cannot verify your api key"
+
+    #Weather
+    no_location:
+      title: "No Content"
+      detail: "Enter a valid location"

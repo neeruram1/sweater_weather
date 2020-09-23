@@ -9,7 +9,7 @@ class Weather
     @id = nil
     @location = location
     @daily_forecasts = data[:daily].map { |data| DailyForecast.new(daily_data(data)) }
-    @hourly_forecasts = data[:hourly].map { |data| HourlyForecast.new(data) }
+    @hourly_forecasts = data[:hourly].map { |data| HourlyForecast.new(hourly_data(data)) }
     @current_forecast = CurrentForecast.new(current_data(data))
   end
 
@@ -37,6 +37,13 @@ class Weather
       description: data[:weather][0][:main],
       precipitation: total_precipitation(data),
       day_of_week: parse_time(data[:dt]).strftime('%A')
+    }
+  end
+
+  def hourly_data(data)
+    {
+      date_time: parse_time(data[:dt]),
+      hourly_temp: data[:temp],
     }
   end
 

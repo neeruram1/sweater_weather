@@ -3,11 +3,7 @@ class HourlyForecast
               :hourly_temp
 
   def initialize(data)
-    @hourly_temp = data[:temp]
-    @date_time = parse_time(data[:dt])
-  end
-
-  def parse_time(time)
-    DateTime.strptime(time.to_s, '%s')
+    @hourly_temp = data[:hourly_temp]
+    @date_time = data[:date_time]
   end
 end

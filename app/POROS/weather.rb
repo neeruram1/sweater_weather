@@ -56,7 +56,7 @@ class Weather
       0
     elsif rain_present?(data) && snow_present?(data) == false
       data[:rain]
-    elsif snow_present?(data) && rain_present(data) == false
+    elsif snow_present?(data) && rain_present?(data) == false
       data[:snow]
     else
       data[:rain] + data[:snow]

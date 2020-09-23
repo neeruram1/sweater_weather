@@ -23,7 +23,7 @@ Sweater Weather is the backend of an application that correlates forecasts to sp
 - Shows the current, hourly, and daily forecast for a location
 
 **Background Image**
-- api/v1/backgrounds?location=**city, state**
+- api/v1/background?location=**city, state**
 - Finds an image that is related to the searched location
 
 **User Registration**

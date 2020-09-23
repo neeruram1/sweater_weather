@@ -5,7 +5,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
     if @user.nil?
       errors(:unauthorized, :invalid_login_email)
     elsif @user.authenticate(session_params[:password])
-      login_user(UserSerializer.new(@user))
+      login_success(UserSerializer.new(@user))
     else
       errors(:unauthorized, :invalid_login_password)
     end
@@ -15,5 +15,9 @@ class Api::V1::SessionsController < Api::V1::BaseController
 
   def session_params
     params.permit(:email, :password)
+  end
+
+  def login_success(user)
+    render json: user, status: :ok
   end
 end

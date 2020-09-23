@@ -1,16 +1,5 @@
 class Api::V1::BaseController < ApplicationController
   include Serviceable
-  def register_user(user)
-    render json: user, status: :created
-  end
-
-  def login_user(user)
-    render json: user, status: :ok
-  end
-
-  def road_trip_created(road_trip)
-    render json: road_trip, status: :created
-  end
 
   def find_user_by_email
     @user = User.find_by(email: params[:email])

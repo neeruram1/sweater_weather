@@ -1,12 +1,15 @@
 class Api::V1::BaseController < ApplicationController
   include Serviceable
-  
   def register_user(user)
     render json: user, status: :created
   end
 
   def login_user(user)
     render json: user, status: :ok
+  end
+
+  def road_trip_created(road_trip)
+    render json: road_trip, status: :created
   end
 
   def find_user_by_email
@@ -23,15 +26,27 @@ class Api::V1::BaseController < ApplicationController
 
   def errors(status, input)
     error =
-    {
-      title: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.title") : status.to_s.capitalize,
-      code: status_code(status),
-      detail: input.is_a?(Symbol) ? I18n.t("error_messages.#{input}.detail") : input.errors.full_messages.join(', ')
-    }
+      {
+        title: http_symbol?(input) ? I18n.t("error_messages.#{input}.title") : format_status(status),
+        code: status_code(status),
+        detail: http_symbol?(input) ? I18n.t("error_messages.#{input}.detail") : full_errors(input)
+      }
     render json: { errors: error }, status: status
   end
 
   def status_code(status)
     Rack::Utils::SYMBOL_TO_STATUS_CODE[status] if status.is_a?(Symbol)
+  end
+
+  def full_errors(input)
+    input.errors.full_messages.join(', ')
+  end
+
+  def http_symbol?(input)
+    input.is_a?(Symbol)
+  end
+
+  def format_status(status)
+    status.to_s.capitalize
   end
 end

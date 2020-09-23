@@ -12,20 +12,16 @@ class CurrentForecast
               :sunrise_time
 
   def initialize(data)
-    @uv_index = data[:current][:uvi]
-    @current_temp = data[:current][:temp]
-    @humidity = data[:current][:humidity]
-    @feels_like = data[:current][:feels_like]
-    @visibility = data[:current][:visibility]
-    @date_time =  parse_time(data[:current][:dt])
-    @high_temp_current = data[:daily][0][:temp][:max]
-    @low_temp_current =  data[:daily][0][:temp][:min]
-    @description = data[:current][:weather][0][:main]
-    @sunset_time = parse_time(data[:current][:sunset])
-    @sunrise_time = parse_time(data[:current][:sunrise])
-  end
-
-  def parse_time(time)
-    DateTime.strptime(time.to_s, '%s')
+    @uv_index = data[:uv_index]
+    @low_temp = data[:low_temp]
+    @humidity = data[:humidity]
+    @date_time = data[:date_time]
+    @high_temp = data[:high_temp]
+    @feels_like = data[:feels_like]
+    @visibility = data[:visibility]
+    @sunset_time = data[:sunset_time]
+    @description = data[:description]
+    @current_temp = data[:current_temp]
+    @sunrise_time = data[:sunrise_time]
   end
 end

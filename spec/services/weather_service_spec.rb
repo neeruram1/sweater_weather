@@ -26,4 +26,36 @@ describe "Can use coordinates to return forecast" do
     expect(response[:lat]).to eq(coords[:lat])
     expect(response[:lon]).to eq(coords[:lon])
   end
+
+  it "Sends an error if wrongly formatted coordinates entered", :vcr do
+    location = 'denver, co'
+    latitude = 'fake'
+    longitude = 'coordinates'
+    coords = {lat: latitude, lon: longitude}
+
+    mapquest_service = MapquestService.new
+    weather_service = WeatherService.new
+
+    response = weather_service.forecast(coords)
+
+    expect(response).to be_a Hash
+    expect(response[:cod]).to eq('400')
+    expect(response[:message]).to eq('wrong latitude')
+  end
+
+  it "Sends an error if no coordinates entered", :vcr do
+    location = 'denver, co'
+    latitude = nil
+    longitude = nil
+    coords = {lat: latitude, lon: longitude}
+
+    mapquest_service = MapquestService.new
+    weather_service = WeatherService.new
+
+    response = weather_service.forecast(coords)
+
+    expect(response).to be_a Hash
+    expect(response[:cod]).to eq('400')
+    expect(response[:message]).to eq('Nothing to geocode')
+  end
 end

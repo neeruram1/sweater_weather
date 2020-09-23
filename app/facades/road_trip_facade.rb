@@ -12,13 +12,25 @@ class RoadTripFacade
   end
 
   def travel_time(params)
-    MapquestService.new.length_between_routes(lat_lng(params[:origin]), lat_lng(params[:destination]))[:route][:formattedTime]
+    travel_time_service(lat_lng(params[:origin]), lat_lng(params[:destination]))[:route][:formattedTime]
   end
 
   def forecast(params)
     {
-      temp: weather_data(params[:destination])[:current][:temp],
-      description: weather_data(params[:destination])[:current][:description]
+      temp: current_temp(params[:destination]),
+      description: forecast_description(params[:destination])
     }
+  end
+
+  def current_temp(location)
+    weather_data(location)[0][:current][:temp]
+  end
+
+  def forecast_description(location)
+    weather_data(location)[0][:current][:weather][0][:description]
+  end
+
+  def travel_time_service(origin, destination)
+    MapquestService.new.length_between_routes(origin, destination)
   end
 end

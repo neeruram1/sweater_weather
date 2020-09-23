@@ -33,8 +33,8 @@ describe "User can request forecast for a city" do
     expect(current_forecast).to be_a Hash
 
     expect(current_forecast).to have_key :current_temp
-    expect(current_forecast).to have_key :high_temp_current
-    expect(current_forecast).to have_key :low_temp_current
+    expect(current_forecast).to have_key :high_temp
+    expect(current_forecast).to have_key :low_temp
     expect(current_forecast).to have_key :date_time
     expect(current_forecast).to have_key :description
     expect(current_forecast).to have_key :sunrise_time
@@ -85,8 +85,8 @@ describe "User can request forecast for a city" do
     expect(daily_forecasts[0]).to_not have_key :clouds
     expect(daily_forecasts[0]).to_not have_key :wind_speed
     expect(daily_forecasts[0]).to_not have_key :wind_deg
-    expect(daily_forecasts[0]).to_not have_key :high_temp_current
-    expect(daily_forecasts[0]).to_not have_key :low_temp_current
+    expect(daily_forecasts[0]).to_not have_key :high_temp
+    expect(daily_forecasts[0]).to_not have_key :low_temp
     expect(daily_forecasts[0]).to_not have_key :hourly_temp
   end
 
@@ -121,7 +121,22 @@ describe "User can request forecast for a city" do
     expect(hourly_forecasts[0]).to_not have_key :clouds
     expect(hourly_forecasts[0]).to_not have_key :wind_speed
     expect(hourly_forecasts[0]).to_not have_key :wind_deg
-    expect(hourly_forecasts[0]).to_not have_key :high_temp_current
-    expect(hourly_forecasts[0]).to_not have_key :low_temp_current
+    expect(hourly_forecasts[0]).to_not have_key :high_temp
+    expect(hourly_forecasts[0]).to_not have_key :low_temp
+  end
+
+  it "Returns an error if user enters no location", :vcr do
+    location = nil
+
+    get "/api/v1/forecast?location=#{location}"
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(400)
+    response.content_type == "application/json"
+
+    error = JSON.parse(response.body, symbolize_names: true)
+    expect(error[:errors][:title]).to eq('No Content')
+    expect(error[:errors][:code]).to eq(400)
+    expect(error[:errors][:detail]).to eq('Enter a valid location')
   end
 end

@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/directions/v2/route?from=,&key=<mapquest_key>&to=39.616,-105.214
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2020 02:46:59 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '345'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=6D0ACEAFB877E59C44319FEB790197AA; Path=/directions; HttpOnly
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Last-Modified:
+      - Wed, 23 Sep 2020 02:46:59 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Status:
+      - success
+      Transactionweight:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJjb2xsZWN0aW9ucyI6W10sImluZm8iOnsic3RhdHVzY29kZSI6NTAwLCJjb3B5cmlnaHQiOnsiaW1hZ2VBbHRUZXh0IjoiwqkgMjAyMCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJ0ZXh0IjoiwqkgMjAyMCBNYXBRdWVzdCwgSW5jLiJ9LCJtZXNzYWdlcyI6WyJFcnJvciBwcm9jZXNzaW5nIHJlcXVlc3Q6IEVuY291bnRlcmVkIGFuIGVycm9yIHdoaWxlIHRyeWluZyB0byBiYXRjaCBnZW9jb2RlOiBHZW9jb2RlIEZhaWxlZDogQSBKU09OT2JqZWN0IHRleHQgbXVzdCBiZWdpbiB3aXRoICd7JyBhdCBjaGFyYWN0ZXIgMCBvZiAiXX19
+  recorded_at: Wed, 23 Sep 2020 02:46:58 GMT
+recorded_with: VCR 6.0.0

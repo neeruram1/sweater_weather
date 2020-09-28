@@ -5,13 +5,14 @@ jobs:
     docker:
       - image: circleci/ruby:2.4.1
         environment:
-          PGHOST: localhost
+          PGHOST: 127.0.0.1
           PGUSER: sweater_weather
           RAILS_ENV: test
       - image: postgres:9.5
         environment:
           POSTGRES_USER: sweater_weather
           POSTGRES_DB: sweater_weather_test
+          POSTGRES_PASSWORD: ""
     steps:
       - checkout
 

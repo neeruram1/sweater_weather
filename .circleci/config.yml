@@ -8,4 +8,7 @@ jobs:
       - image: circleci/ruby:2.6.3-stretch-node
     executor: ruby/default
     steps:
+      - run:
+        name: running tests
+        comand: bundle exec rspec 
       - checkout

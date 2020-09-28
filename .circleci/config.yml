@@ -9,6 +9,5 @@ jobs:
     executor: ruby/default
     steps:
       - run:
-        name: running tests
         comand: bundle exec rspec 
       - checkout

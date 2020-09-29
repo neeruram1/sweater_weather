@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2020 02:46:59 GMT
+      - Tue, 29 Sep 2020 17:01:55 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -27,11 +27,11 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=6D0ACEAFB877E59C44319FEB790197AA; Path=/directions; HttpOnly
+      - JSESSIONID=1DB974FA911A737BA8B9D819B33DCC11; Path=/directions; HttpOnly
       Expires:
       - Mon, 20 Dec 1998 01:00:00 GMT
       Last-Modified:
-      - Wed, 23 Sep 2020 02:46:59 GMT
+      - Tue, 29 Sep 2020 17:01:55 GMT
       Cache-Control:
       - no-cache, must-revalidate
       Pragma:
@@ -48,5 +48,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         eyJjb2xsZWN0aW9ucyI6W10sImluZm8iOnsic3RhdHVzY29kZSI6NTAwLCJjb3B5cmlnaHQiOnsiaW1hZ2VBbHRUZXh0IjoiwqkgMjAyMCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJ0ZXh0IjoiwqkgMjAyMCBNYXBRdWVzdCwgSW5jLiJ9LCJtZXNzYWdlcyI6WyJFcnJvciBwcm9jZXNzaW5nIHJlcXVlc3Q6IEVuY291bnRlcmVkIGFuIGVycm9yIHdoaWxlIHRyeWluZyB0byBiYXRjaCBnZW9jb2RlOiBHZW9jb2RlIEZhaWxlZDogQSBKU09OT2JqZWN0IHRleHQgbXVzdCBiZWdpbiB3aXRoICd7JyBhdCBjaGFyYWN0ZXIgMCBvZiAiXX19
-  recorded_at: Wed, 23 Sep 2020 02:46:58 GMT
+  recorded_at: Tue, 29 Sep 2020 17:01:53 GMT
 recorded_with: VCR 6.0.0

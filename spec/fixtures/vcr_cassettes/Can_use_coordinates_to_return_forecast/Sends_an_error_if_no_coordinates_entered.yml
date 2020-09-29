@@ -21,11 +21,11 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Wed, 23 Sep 2020 02:37:38 GMT
+      - Tue, 29 Sep 2020 17:01:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '44'
+      - '40'
       Connection:
       - keep-alive
       X-Cache-Key:
@@ -38,6 +38,6 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"cod":"400","message":"Nothing to geocode"}'
-  recorded_at: Wed, 23 Sep 2020 02:37:37 GMT
+      string: '{"cod":"400","message":"wrong latitude"}'
+  recorded_at: Tue, 29 Sep 2020 17:01:54 GMT
 recorded_with: VCR 6.0.0

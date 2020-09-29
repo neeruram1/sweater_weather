@@ -32,10 +32,10 @@ describe RoadTripFacade do
   end
 
   it "current_temp", :vcr do
-    expect(@facade.current_temp(@params[:destination])).to eq(70.63)
+    expect(@facade.current_temp(@params[:destination])).to eq(71.98)
   end
 
   it "forecast_description", :vcr do
-    expect(@facade.forecast_description(@params[:destination])).to eq('broken clouds')
+    expect(@facade.forecast_description(@params[:destination])).to eq('clear sky')
   end
 end

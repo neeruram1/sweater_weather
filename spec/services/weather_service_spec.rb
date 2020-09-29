@@ -56,6 +56,6 @@ describe "Can use coordinates to return forecast" do
 
     expect(response).to be_a Hash
     expect(response[:cod]).to eq('400')
-    expect(response[:message]).to eq('Nothing to geocode')
+    expect(response[:message]).to eq('wrong latitude')
   end
 end

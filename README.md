@@ -65,6 +65,7 @@ https://github.com/neeruram1/sweather_weather/
 - [Unsplash API](https://unsplash.com/developers)
 
 ## API Endpoints 
+[![Test Endpoints in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/8d7bfa80b4ed43128de3)
 
 **Forecast**
 - api/v1/forecast?location=**city, state**

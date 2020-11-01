@@ -23,13 +23,6 @@ Sweater Weather is the backend of an application that correlates forecasts to sp
 - [Original Project Link](https://mod4.turing.io/projects/capstone.html)
 
 
-## Technology Used
-
-- Ruby 2.5.3
-- Rails 6.0.3
-- PostgreSQL database
-- RSpec for testing
-
 ### Wins
 
 This project consumes two APIs and manipulates that data and reformats it for use in a custom built API. Consuming and building APIs in one application was a fun challenge. 
@@ -37,6 +30,14 @@ This project consumes two APIs and manipulates that data and reformats it for us
 ### Struggles
 
 Deciding on the optimal architecture and structure of the API. Figuring out the best way to use facades and modules within this backend. 
+
+
+## Technology Used
+
+- Ruby 2.5.3
+- Rails 6.0.3
+- PostgreSQL database
+- RSpec for testing
 
 ## Installation
 
